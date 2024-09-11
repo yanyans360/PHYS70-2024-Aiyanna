@@ -6,32 +6,51 @@ body {
     background-color: #fdf8eb;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden; /* Hide overflow if background moves beyond */
+    height: auto; /* Changed from 100vh to auto to allow scrolling */
+    overflow: auto; /* Enable scrolling */
 }
 
 /* Cloud Background Animation */
 @keyframes moveClouds {
     from {
-        background-position: 0 0; /* Starting position */
+        background-position: 0 0; /* Starting position (top) */
     }
     to {
-        background-position: -2000px 0; /* Ending position, adjust based on your image width */
+        background-position: 0 100vh; /* Ending position (bottom) */
     }
 }
 
-/* Apply the cloud background with animation */
+/* Wrapper for background and gradient */
 .cloud-background {
-    background: url('path-to-your-cloud-image.png') repeat-x; /* Repeating cloud image horizontally */
+    position: relative;
+    min-height: 100vh; /* Full height of viewport */
+    z-index: 0; /* Keep this layer low, for background and gradient */
+}
+
+.cloud-background::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* Full viewport height */
-    background-size: cover; /* Adjust based on your image */
-    animation: moveClouds 30s linear infinite; /* 30s animation duration, adjust as needed */
-    z-index: -1; /* Keep it in the background */
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(253, 248, 235, 1) 0%, rgba(253, 248, 235, 0) 30%); /* Gradient */
+    z-index: 1; /* Gradient stays just above the background image */
 }
+
+.cloud-background::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./Jamaica_Boat_Pic.jpg') no-repeat center top;
+    background-size: cover;
+    z-index: 0; /* Background stays at the bottom */
+}
+
+
 
 /* Container for Text */
 .textcontainer {
@@ -55,30 +74,67 @@ a {
 
 /* Container Fluid Styling */
 .container-fluid {
-    padding: 0px; /* Removes padding inside the container */
+    padding: 150px; /* Removes padding inside the container */
 }
 
-/* Navbar Styles */
+
+/* Navbar container for overall alignment */
+/* Navbar container for overall alignment */
+/* Navbar container for overall alignment */
 nav {
-    background-color: #fdf8eb;
-    color: #EEE7E8;
-    padding: 20px 0px; /* Adjust padding to make sure it's flush with the top */
+    display: flex;
+    justify-content: space-between; /* Spread Home to the left and others to the right */
+    align-items: flex-start; /* Aligns the buttons at the top */
+    padding: 20px;
+    background-color: transparent;
+    position: relative;
+    z-index: 3;
+}
+
+/* Home Button aligned to the left */
+.navbar-nav.home-button {
+    justify-content: flex-start; /* Aligns the Home button to the left */
+    flex-grow: 0;
+}
+
+/* Other buttons stacked vertically and aligned to the right */
+.navbar-nav.other-buttons {
+    display: flex;
+    flex-direction: column; /* Stack the buttons vertically */
+    align-items: flex-end; /* Align buttons to the right */
+    flex-grow: 1;
+    gap: 20px; /* Adds space between the buttons */
+    width: auto;
+}
+
+/* Specific Home Button Circle */
+.nav-link.home-btn {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    background-color: #feb404;
+    border: 3px outset #f4a200;
+    color: #ffffff;
+    font-size: 20px;
+    transition: 0.3s;
 }
 
-/* Navbar Nav Flexbox Styling */
-.navbar-nav {
-    display: flex;
-    justify-content: space-around; /* This will evenly space the buttons */
-    width: 50%; /* Adjust this to control how much space the buttons take up */
-    margin: 0 auto; /* Centers the navbar horizontally */
-    gap: 20px; /* Adds space between the buttons */
+/* Hover Effect for Home Button */
+.nav-link.home-btn:hover {
+    background-color: #f4a200;
+    border-color: #feb404;
+    color: #ffffff;
 }
 
-/* Navigation Link Styles */
+
+/* General Navigation Link Styles (for the About and Final Project buttons) */
 .nav-link {
+    z-index: 3;
     border: 3px outset #a5381c;
     border-radius: 20px;
     padding: 10px 30px;
@@ -86,13 +142,18 @@ nav {
     color: #EEE7E8;
     transition: 0.3s;
     text-align: center;
+    white-space: nowrap; /* Prevents text from wrapping inside the button */
 }
 
+
+
+
 .nav-link:hover {
-    border: 3px outset #e47d20;
-    background-color: #a5381c;
-    transition: 0.3s;
+    background-color: #bfc8ae; /* Darker green on hover */
+    border-color: #a8b09c; /* Border color on hover */
 }
+
+
 
 /* Space Before Title */
 .space-before-title {
@@ -102,17 +163,37 @@ nav {
 
 /* Title Row Styles */
 .title-row {
-    display: flex; /* Uses flexbox to layout the title row */
-    justify-content: center; /* Centers the title horizontally */
-    margin-top: 20px; /* Adds space between the buttons and the title */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
 }
 
 /* Title Styling */
 .nav-title {
-    font-family: 'Rubik Mono One', sans-serif; /* Sets the font family for the title */
-    color: #100f0f; /* Sets the color of the title text */
-    font-size: 60px; /* Adjusts the font size of the title */
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #100f0f;
+    font-size: 60px;
+    position: relative;
+    z-index: 1;
 }
+
+/* Floating "i" and "am" - part of the text flow */
+.floating-i, .floating-am {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.5s ease-in-out, opacity 0.5s;
+}
+
+/* Hover effect: move "i" and "am" up */
+.nav-title:hover .floating-i {
+    transform: translateY(-70px); /* Move "i" up */
+}
+
+.nav-title:hover .floating-am {
+    transform: translateY(-70px); /* Move "am" up */
+}
+
 
 /* Navigation Link Styles */
 .nav-link {
@@ -128,19 +209,6 @@ nav {
     border: 3px outset #e47d20; /* Changes the border color on hover */
     background-color: #a5381c; /* Keeps the background color the same on hover */
     transition: 0.3s; /* Adds a transition effect for hover */
-}
-
-/* Target Home button using href */
-.nav-link[href="./index.html"] {
-    background-color: #d3ddc6; /* Light green background */
-    border: 3px outset #a8b09c; /* Darker green border */
-    color: #000000; /* Text color */
-    transition: 0.3s;
-}
-
-.nav-link[href="./index.html"]:hover {
-    background-color: #bfc8ae; /* Darker green on hover */
-    border-color: #a8b09c; /* Border color on hover */
 }
 
 
