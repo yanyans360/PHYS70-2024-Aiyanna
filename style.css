@@ -246,5 +246,50 @@ code {
 
 /* About Me Section */
 #aboutme {
-    padding: 20px; /* Adds padding inside the About Me section */
+    padding: 10px; /* Adds padding inside the About Me section */
 }
+
+/* Center and scale images */
+.center-row img {
+    display: block; /* Ensures image is treated as a block element */
+    margin-left: auto; /* Center image horizontally */
+    margin-right: auto; /* Center image horizontally */
+    max-width: 50%; /* Scale down the image to 50% of the container width */
+    height: auto; /* Keep the aspect ratio intact */
+}
+
+/* Additional image styling (if needed for specific images) */
+img {
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow around the images */
+}
+
+/* Specific styling for Chia_Pet.jpeg */
+.chia-pic {
+    display: block; /* Makes the image a block element for centering */
+    margin-left: auto; /* Centers image horizontally */
+    margin-right: auto; /* Centers image horizontally */
+    max-width: 50%; /* Scales the image down to 40% */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
+
+/* Center, change font size, and apply Rubik Mono One font */
+h3 {
+    text-align: center; /* Centers the text */
+    font-size: 32px; /* Adjusts the size of the text */
+    font-family: 'Rubik Mono One', sans-serif; /* Changes the font to Rubik Mono One */
+}
+
+/* Increase the font size for the "aboutme" paragraph */
+#aboutme {
+    font-size: 25px; /* Change the size to whatever fits your design */
+}
+
+/* Increase font size for the "pet-cat-text" */
+.pet-cat-text {
+    font-size: 25px; /* Adjust the size to your preference */
+    font-weight: normal; /* Optional: Adjust the font weight */
+    line-height: 1.5; /* Optional: Adjust line spacing */
+}
+
