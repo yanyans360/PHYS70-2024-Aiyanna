@@ -293,3 +293,51 @@ h3 {
     line-height: 1.5; /* Optional: Adjust line spacing */
 }
 
+/* Flexbox container to display portrait and landscape images side by side */
+.image-row {
+    display: flex; /* Aligns portrait and landscape images in a row */
+    justify-content: center; /* Centers the images horizontally */
+    gap: 20px; /* Adds space between the portrait and landscape columns */
+}
+
+/* Portrait image styling */
+.crochet-img {
+    max-width: 40%; /* Adjust the size for the portrait image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+/* Flexbox to stack the landscape images vertically */
+.stacked-images {
+    display: flex;
+    flex-direction: column; /* Stack the two landscape images on top of each other */
+    gap: 20px; /* Adds space between the two images */
+}
+
+/* Style for the first landscape image */
+.second-img {
+    max-width: 100%; /* Make sure it fills the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+/* Style for the second landscape image stacked underneath */
+.third-img {
+    max-width: 100%; /* Make sure it fills the width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+
+
+
+/* Adjust font size for the crochet text */
+.crochet-text {
+    font-size: 25px; /* Adjust this size as needed */
+    text-align: center; /* Optional: Center the text */
+    font-weight: normal; /* Optional: Control the weight of the text */
+}
+
