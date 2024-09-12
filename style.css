@@ -1,60 +1,59 @@
 /* General Body Styles */
 body {
-    font: 20px "Gill Sans", Verdana, sans-serif;
-    line-height: 1.8;
-    color: #000000;
-    background-color: #fdf8eb;
-    margin: 0;
-    padding: 0;
-    height: auto; /* Changed from 100vh to auto to allow scrolling */
-    overflow: auto; /* Enable scrolling */
+    font: 20px "Gill Sans", Verdana, sans-serif; /* Sets font family and size for the body text */
+    line-height: 1.8; /* Sets line height for readability */
+    color: #000000; /* Text color is black */
+    background-color: #fdf8eb; /* Light background color */
+    margin: 0; /* Removes any default margin around the page */
+    padding: 0; /* Removes any default padding around the page */
+    height: auto; /* Allows the body height to adjust based on the content */
+    overflow: auto; /* Enables scrolling if content exceeds the viewport */
 }
 
 /* Cloud Background Animation */
-@keyframes moveClouds {
+@keyframes moveClouds { 
+    /* Keyframes define an animation */
     from {
-        background-position: 0 0; /* Starting position (top) */
+        background-position: 0 0; /* Start the background at the top */
     }
     to {
-        background-position: 0 100vh; /* Ending position (bottom) */
+        background-position: 0 100vh; /* Move the background vertically down 100% of the viewport height */
     }
 }
 
 /* Wrapper for background and gradient */
 .cloud-background {
-    position: relative;
-    min-height: 100vh; /* Full height of viewport */
-    z-index: 0; /* Keep this layer low, for background and gradient */
+    position: relative; /* Allows for absolute positioning of child elements */
+    min-height: 100vh; /* Ensures the background covers the full viewport height */
+    z-index: 0; /* This element stays behind other elements layered above */
 }
 
 .cloud-background::before {
-    content: "";
-    position: absolute;
+    content: ""; /* Creates a pseudo-element with no content */
+    position: absolute; /* Positioned relative to the parent (.cloud-background) */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(253, 248, 235, 1) 0%, rgba(253, 248, 235, 0) 30%); /* Gradient */
-    z-index: 1; /* Gradient stays just above the background image */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: linear-gradient(to bottom, rgba(253, 248, 235, 1) 0%, rgba(253, 248, 235, 0) 30%); /* Creates a gradient that fades out */
+    z-index: 1; /* Places the gradient just above the background */
 }
 
 .cloud-background::after {
-    content: "";
+    content: ""; /* Creates a second pseudo-element */
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('./Jamaica_Boat_Pic.jpg') no-repeat center top;
-    background-size: cover;
-    z-index: 0; /* Background stays at the bottom */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: url('./Jamaica_Boat_Pic.jpg') no-repeat center top; /* Background image with no-repeat, centered at the top */
+    background-size: cover; /* Ensures the image covers the entire container */
+    z-index: 0; /* Ensures the background image stays behind the gradient */
 }
-
-
 
 /* Container for Text */
 .textcontainer {
-    padding: 2% 10%; /* Adds padding around the text container */
+    padding: 2% 10%; /* Adds padding (2% top-bottom, 10% left-right) around the text container */
 }
 
 /* Paragraph Styling */
@@ -64,37 +63,34 @@ p {
 
 /* Margin Styling */
 .margin {
-    margin-bottom: 30px; /* Adds margin to the bottom of elements */
+    margin-bottom: 30px; /* Adds 30px margin to the bottom of elements */
 }
 
 /* Link Styling */
 a {
-    color: #000000; /* Sets the color of links */
+    color: #000000; /* Sets link text color to black */
 }
 
 /* Container Fluid Styling */
 .container-fluid {
-    padding: 150px; /* Removes padding inside the container */
+    padding: 150px; /* Adds padding inside the container */
 }
 
-
-/* Navbar container for overall alignment */
-/* Navbar container for overall alignment */
 /* Navbar container for overall alignment */
 nav {
-    display: flex;
-    justify-content: space-between; /* Spread Home to the left and others to the right */
-    align-items: flex-start; /* Aligns the buttons at the top */
-    padding: 20px;
-    background-color: transparent;
-    position: relative;
-    z-index: 3;
+    display: flex; /* Flexbox for aligning the navbar */
+    justify-content: space-between; /* Space out elements evenly between left and right */
+    align-items: flex-start; /* Align elements at the top */
+    padding: 20px; /* Adds padding inside the navbar */
+    background-color: transparent; /* Transparent background for the navbar */
+    position: relative; /* Positions child elements relative to this container */
+    z-index: 3; /* Ensures the navbar is above the background */
 }
 
 /* Home Button aligned to the left */
 .navbar-nav.home-button {
     justify-content: flex-start; /* Aligns the Home button to the left */
-    flex-grow: 0;
+    flex-grow: 0; /* Prevents the Home button from growing */
 }
 
 /* Other buttons stacked vertically and aligned to the right */
@@ -102,164 +98,153 @@ nav {
     display: flex;
     flex-direction: column; /* Stack the buttons vertically */
     align-items: flex-end; /* Align buttons to the right */
-    flex-grow: 1;
+    flex-grow: 1; /* Allow the other buttons to take up the remaining space */
     gap: 20px; /* Adds space between the buttons */
-    width: auto;
+    width: auto; /* Set the width of the buttons automatically */
 }
 
 /* Specific Home Button Circle */
 .nav-link.home-btn {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #feb404;
-    border: 3px outset #f4a200;
-    color: #ffffff;
-    font-size: 20px;
-    transition: 0.3s;
+    width: 120px; /* Sets the width of the circle */
+    height: 120px; /* Sets the height of the circle */
+    border-radius: 50%; /* Makes the button circular */
+    padding: 0; /* No extra padding */
+    display: flex; /* Flexbox to center content */
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center; /* Centers the text vertically */
+    text-align: center; /* Centers text inside the button */
+    background-color: #feb404; /* Sets background color to yellow */
+    border: 3px outset #f4a200; /* Yellow border around the button */
+    color: #ffffff; /* White text color */
+    font-size: 20px; /* Sets the font size */
+    position: relative; /* Allows for positioning sun rays */
+    transition: 0.3s; /* Adds smooth transition effect */
 }
 
-/* Hover Effect for Home Button */
-.nav-link.home-btn:hover {
-    background-color: #f4a200;
-    border-color: #feb404;
-    color: #ffffff;
+/* Sun Rays using ::before and ::after */
+.nav-link.home-btn::before, 
+.nav-link.home-btn::after, 
+.nav-link.home-btn .ray-1, 
+.nav-link.home-btn .ray-2 {
+    content: ""; /* Empty content for pseudo-elements */
+    position: absolute; /* Positioned absolutely around the button */
+    width: 1000; /* Placeholder, change to proper value */
+    height: 1000; /* Placeholder, change to proper value */
+    border-left: 40px solid transparent; /* Transparent left border for triangular ray */
+    border-right: 40px solid transparent; /* Transparent right border for triangular ray */
+    border-bottom: 60px solid #feb404; /* Yellow color for the ray */
+    border-radius: 50%; /* Rounds the tips of the rays */
+    z-index: -1; /* Ensures rays are behind the button */
 }
 
+/* Positioning rays around the button */
+.nav-link.home-btn::before {
+    transform: translate(110%, -70%) rotate(60deg); /* Position and rotate top-left ray */
+}
 
-/* General Navigation Link Styles (for the About and Final Project buttons) */
+.nav-link.home-btn::after {
+    transform: translate(110%, 90%) rotate(120deg); /* Position and rotate bottom-right ray */
+}
+
+.nav-link.home-btn .ray-1 {
+    transform: translate(5%, 170%) rotate(180deg); /* Position and rotate top-right ray */
+}
+
+.nav-link.home-btn .ray-2 {
+    transform: translate(-90%, 120%) rotate(230deg); /* Position and rotate bottom-left ray */
+}
+
+/* General Navigation Link Styles */
 .nav-link {
-    z-index: 3;
-    border: 3px outset #a5381c;
-    border-radius: 20px;
-    padding: 10px 30px;
-    background-color: #a5381c;
-    color: #EEE7E8;
-    transition: 0.3s;
-    text-align: center;
+    z-index: 3; /* Ensure links are above the background */
+    border: 3px outset #a5381c; /* Border around links */
+    border-radius: 20px; /* Round the corners */
+    padding: 10px 30px; /* Padding inside the links */
+    background-color: #a5381c; /* Background color for the links */
+    color: #EEE7E8; /* Text color for the links */
+    transition: 0.3s; /* Smooth hover transition */
+    text-align: center; /* Centers the text */
     white-space: nowrap; /* Prevents text from wrapping inside the button */
 }
 
-
-
-
+/* Hover Effect for Links */
 .nav-link:hover {
-    background-color: #bfc8ae; /* Darker green on hover */
-    border-color: #a8b09c; /* Border color on hover */
+    background-color: #bfc8ae; /* Changes background color on hover */
+    border-color: #a8b09c; /* Changes border color on hover */
 }
-
-
 
 /* Space Before Title */
 .space-before-title {
-    height: 100px; /* Sets the height of the space before the title */
-    /* Adjust this value to increase or decrease the space */
+    height: 100px; /* Adds space above the title */
 }
 
 /* Title Row Styles */
 .title-row {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    display: flex; /* Flexbox for aligning title */
+    justify-content: center; /* Centers the title horizontally */
+    margin-top: 20px; /* Adds space above the title */
     position: relative;
 }
 
 /* Title Styling */
 .nav-title {
-    font-family: 'Rubik Mono One', sans-serif;
-    color: #100f0f;
-    font-size: 60px;
+    font-family: 'Rubik Mono One', sans-serif; /* Font for the title */
+    color: #100f0f; /* Dark color for title */
+    font-size: 60px; /* Large font size */
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Ensures the title is above the background */
+    display: inline-block;
 }
 
-/* Floating "i" and "am" - part of the text flow */
-.floating-i, .floating-am {
-    display: inline-block;
+/* Floating "i" and "am" aligned with original text */
+.floating-text {
     position: relative;
+    display: inline-block;
+    z-index: 1; /* Keep floating text above other content */
+}
+
+/* Default "i" and "am" visibility */
+.visible-i, .visible-am {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease-in-out; /* Smooth animation */
+}
+
+/* Hidden floating versions */
+.floating-i, .floating-am {
+    position: absolute;
+    left: 0; /* Keep aligned with original text */
+    opacity: 0; /* Hidden by default */
+    transform: translateY(0); /* No vertical movement initially */
     transition: transform 0.5s ease-in-out, opacity 0.5s;
 }
 
-/* Hover effect: move "i" and "am" up */
-.nav-title:hover .floating-i {
-    transform: translateY(-70px); /* Move "i" up */
+/* Hover effect: trigger animation */
+.nav-title:hover .floating-i, .nav-title:hover .floating-am {
+    opacity: 1; /* Show floating text on hover */
+    transform: translateY(-40px); /* Move the floating "i" and "am" up */
 }
 
-.nav-title:hover .floating-am {
-    transform: translateY(-70px); /* Move "am" up */
+.nav-title:hover .visible-i, .nav-title:hover .visible-am {
+    opacity: 0.5; /* Fades original "i" and "am" on hover */
 }
 
-
-/* Navigation Link Styles */
-.nav-link {
-    border: 3px outset #a5381c; /* Sets the border style for navigation links */
-    border-radius: 20px; /* Rounds the corners of the border */
-    padding: 10px 30px; /* Adds padding inside the navigation links */
-    background-color: #a5381c; /* Sets the background color of the navigation links */
-    color: #EEE7E8; /* Sets the color of the navigation link text */
-    transition: 0.3s; /* Adds a transition effect for hover */
-}
-
-.nav-link:hover {
-    border: 3px outset #e47d20; /* Changes the border color on hover */
-    background-color: #a5381c; /* Keeps the background color the same on hover */
-    transition: 0.3s; /* Adds a transition effect for hover */
-}
-
-
-/* Button Styling */
-#btn {
-    border: 3px outset #FFFFFF; /* Sets the border style for buttons */
-    border-radius: 40px; /* Rounds the corners of the border */
-    padding: 10px 30px; /* Adds padding inside the buttons */
-    background-color: #a3a3a3; /* Sets the background color of the buttons */
-    color: #000000; /* Sets the text color of the buttons */
-    transition: 0.3s; /* Adds a transition effect for hover */
-}
-
-#btn:hover {
-    border: 3px inset #FFFFFF; /* Changes the border style on hover */
-    background-color: #a3a3a3; /* Keeps the background color the same on hover */
-    transition: 0.3s; /* Adds a transition effect for hover */
-}
-
-/* Row Styling */
-.row {
-    margin: auto auto; /* Centers the row horizontally and vertically */
-}
-
-/* Flexbox Rows */
-.flexrow {
-    display: flex; /* Uses flexbox to layout the items */
-    justify-content: space-evenly; /* Distributes space evenly between items */
-}
-
-.center-row {
-    display: flex; /* Uses flexbox to layout the items */
-    justify-content: center; /* Centers the items horizontally */
-}
-
-/* Code Styling */
+/* Code block styling */
 code {
-    background-color: #2d2b33; /* Sets the background color for code blocks */
-    color: #EEE7E8; /* Sets the text color for code blocks */
-    font-family: 'Courier New', Courier, monospace; /* Sets the font family for code blocks */
+    background-color: #2d2b33; /* Background for code blocks */
+    color: #EEE7E8; /* Text color for code */
+    font-family: 'Courier New', Courier, monospace; /* Code block font */
 }
 
 /* Caption Styling */
 .caption {
-    color: gray; /* Sets the color of the captions */
-    font-size: 16px; /* Sets the font size for the captions */
-    text-align: center; /* Centers the text of the captions */
-    font-style: italic; /* Makes the caption text italic */
+    color: gray; /* Caption text color */
+    font-size: 16px; /* Caption text size */
+    text-align: center; /* Center the caption */
+    font-style: italic; /* Italic text for captions */
 }
 
 /* About Me Section */
 #aboutme {
-    padding: 20px; /* Adds padding inside the about me section */
+    padding: 20px; /* Adds padding inside the About Me section */
 }
