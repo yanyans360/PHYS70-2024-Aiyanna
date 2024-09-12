@@ -169,8 +169,8 @@ nav {
 
 /* Hover Effect for Links */
 .nav-link:hover {
-    background-color: #bfc8ae; /* Changes background color on hover */
-    border-color: #a8b09c; /* Changes border color on hover */
+    background-color: #feca7e; /* Changes background color on hover */
+    border-color: #feca7e; /* Changes border color on hover */
 }
 
 /* Space Before Title */
