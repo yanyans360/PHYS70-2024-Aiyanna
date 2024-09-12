@@ -317,7 +317,7 @@ h3 {
 
 /* Style for the first landscape image */
 .second-img {
-    max-width: 100%; /* Make sure it fills the width of the container */
+    max-width: 60%; /* Make sure it fills the width of the container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
@@ -325,7 +325,7 @@ h3 {
 
 /* Style for the second landscape image stacked underneath */
 .third-img {
-    max-width: 100%; /* Make sure it fills the width of the container */
+    max-width: 60%; /* Make sure it fills the width of the container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
@@ -340,4 +340,82 @@ h3 {
     text-align: center; /* Optional: Center the text */
     font-weight: normal; /* Optional: Control the weight of the text */
 }
+.container-fluid.bg-3 {
+    position: relative; /* Allows z-index to work */
+    z-index: 6; /* Bring the unit buttons above other elements */
+    margin-top: 20px; /* Adds some space above the buttons */
+}
 
+/* Styling for the solid-colored, rounded square unit buttons */
+.unit-btn {
+    display: block;
+    width: 75%; /* Button width */
+    margin: 10px auto; /* Centers the button horizontally */
+    padding: 20px; /* Adds padding inside the button */
+    text-align: center; /* Centers the text */
+    text-decoration: none; /* Removes underline from links */
+    font-family: 'Rubik Mono One', sans-serif; /* Sets the font */
+    font-size: 18px; /* Text size */
+    border-radius: 15px; /* Rounds the corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adds hover effects */
+    opacity: 0.8; /* Make the button 80% opaque */
+}
+
+/* Hover effect for the buttons */
+.unit-btn:hover {
+    opacity: 1; /* Fully opaque on hover */
+    background-color: #fd968f;
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+    color: #ffffff;
+}
+
+/* Week 1 Button Style */
+.week-1-btn {
+    color: #ffffff; /* White text */
+}
+
+/* Week 2 Button Style */
+.week-2-btn {
+    color: #000000; /* Black text */
+}
+
+/* Week 3 Button Style */
+.week-3-btn {
+    color: #000000; /* Black text */
+}
+
+.week-4-btn {
+    color: #ffffff !important; /* Force white text with higher specificity */
+}
+
+.week-5-btn {
+    color: #000000; 
+}
+
+.week-6-btn {
+    color: #000000; 
+}
+
+.week-7-btn {
+    color: #ffffff !important; /* Force white text with higher specificity */
+}
+
+.week-8-btn {
+    color: #000000; /* Force white text with higher specificity */
+}
+
+.week-9-btn {
+    color: #000000; 
+}
+
+.week-10-btn {
+    color: #ffffff !important; /* Force white text with higher specificity */
+}
+
+.week-10-btn {
+    color: #ffffff !important; /* Force white text with higher specificity */
+}
+
+.final-project-btn {
+    color: #ffffff !important; /* Force white text with higher specificity */
+}
