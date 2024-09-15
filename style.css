@@ -432,3 +432,13 @@ h3 {
     font-size: 25px; /* Adjust this size as needed */
     color: #000000; /* Optional: Change text color */
 }
+
+/* Specific styling for Chia_Pet.jpeg */
+.mirror-pic {
+    display: block; /* Makes the image a block element for centering */
+    margin-left: auto; /* Centers image horizontally */
+    margin-right: auto; /* Centers image horizontally */
+    max-width: 50%; /* Scales the image down to 40% */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+}
