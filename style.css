@@ -468,6 +468,11 @@ h3 {
     height: auto; /* Maintains aspect ratio */
     border-radius: 10px; /* Optional: Rounded corners */
 }
-
-
-
+.CH-pic {
+    display: block; /* Makes the image a block element for centering */
+    margin-left: auto; /* Centers image horizontally */
+    margin-right: auto; /* Centers image horizontally */
+    max-width: 80%; /* Scales the image down to 40% */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 30px; /* Optional: Rounded corners */
+}
