@@ -135,8 +135,116 @@ Too late. I've already done it. Copper and Coppertino are lovers.
 
 Here they are in action: 
 
-<video width="600" controls>
+<video class="centered-video" width="600" controls>
   <source src="./DotAndDash.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+As you can see, I've added dashes with some more timer and if functions. Now I want to get to the fun part. I've found this on google: 
+
+<p> <br><b>Dot length:</b>  A dot is one unit long. <br>
+<b>Dash length:</b>  A dash is three units long. <br>
+<b>Space between parts of a letter:</b>  The space between a dot and a dash in the same letter is one unit. <br>
+<b>Space between letters:</b>  The space between letters is three units. <br>
+<b>Space between words:</b>  The space between words is seven units. <br>
+</p>
+
+Let's update the arduino code to match this. I had some help from chatGPT to make this code, which is pretty accurate in recording different touches and spaces between words: 
+  <pre><code class="language-cpp">  
+    long result;            // Variable for the result of the tx_rx measurement
+int analog_pin = A3;    // Analog input pin
+int tx_pin = 4;         // Digital output pin
+
+unsigned long previousMillis = 0;   // Stores the last time the result was checked
+unsigned long aboveThresholdMillis = 0;   // Stores the time when the value first exceeded 5000
+const long unitTime = 500;         // One unit of time in milliseconds (1 second)
+const long dashTime = 3 * unitTime; // Time for a dash (3 units)
+const long wordSpaceTime = 7 * unitTime;  // Time for word space (7 units)
+bool aboveThreshold = false;        // Flag to indicate if the value is above 5000
+bool letterInProgress = false;      // Flag to track if we're in the middle of a letter
+
+void setup() {
+    pinMode(tx_pin, OUTPUT);        // Pin 4 provides the voltage step
+    Serial.begin(9600);             // Begin serial communication at 9600 baud rate
+    
+    // Print 10 blank lines for clarity
+    for (int i = 0; i < 10; i++) {
+        Serial.println();
+    }
+}
+
+void loop() {
+    unsigned long currentMillis = millis();   // Get the current time in milliseconds
+  
+    // Check the sensor value at regular intervals
+    result = tx_rx();                // Call the tx_rx function to get the result
+
+    // Check if result exceeds 5000
+    if (result > 5000) {
+        if (!aboveThreshold) {  // If it's the first time the value goes above 5000
+            aboveThresholdMillis = currentMillis; // Record the time it went above 5000
+            aboveThreshold = true;  // Set the flag to true
+        }
+        // If it's been above 5000 for more than 2 units (2 seconds), print a dash
+        else if (currentMillis - aboveThresholdMillis >= dashTime) {
+            Serial.print("-");  // Print a dash for a long press (dash)
+            delay(unitTime);    // Delay for one unit (space between parts of a letter)
+            previousMillis = currentMillis;  // Reset the timer after printing a dash
+        }
+    } else {
+        // If result is below or drops below 5000
+        if (aboveThreshold) {
+            // If it was above 5000, check how long it stayed above
+            if (currentMillis - aboveThresholdMillis < dashTime) {
+                Serial.print(".");  // Print a dot for a short press (dot)
+                previousMillis = currentMillis;  // Reset the timer after printing a dot
+            }
+            aboveThreshold = false;  // Reset the flag
+            letterInProgress = true; // Mark that we're in the middle of a letter
+        }
+
+        // If there's a pause after the letter and no further input, add spacing
+        if (letterInProgress && currentMillis - previousMillis >= 3 * unitTime) {
+            Serial.print(" ");  // Print space between letters (3 units)
+            letterInProgress = false; // Reset letter progress flag
+            previousMillis = currentMillis;  // Reset the timer after printing a space between letters
+        }
+        
+        // If there's an even longer pause, add word spacing
+        if (currentMillis - previousMillis >= wordSpaceTime) {
+            Serial.print("/");  // Print slash for word space (7 units)
+            previousMillis = currentMillis;  // Reset the timer after printing a space between words
+        }
+    }
+}
+
+long tx_rx() {                       // Function to execute tx_rx algorithm
+    int read_high;
+    int read_low;
+    int diff;
+    long int sum;
+    int N_samples = 100;               // Number of samples to take
+
+    sum = 0;
+
+    for (int i = 0; i < N_samples; i++) {
+        digitalWrite(tx_pin, HIGH);      // Step the voltage high on conductor 1
+        read_high = analogRead(analog_pin);  // Measure response of conductor 2
+        delayMicroseconds(10);           // Delay to reach steady state
+        digitalWrite(tx_pin, LOW);       // Step the voltage to zero on conductor 1
+        read_low = analogRead(analog_pin);   // Measure response of conductor 2
+        diff = read_high - read_low;     // Desired answer is the difference between high and low
+        sum += diff;                     // Sums up N_samples of these measurements
+    }
+  
+    return sum;                        // Return the sum as the result
+}
+ </code></pre>
+
+ um so basically this relies on a timer that resets after everytime a new character is recorded. The unit of time right now is half of a second, meaning you will need to hold copper and coppertino together for 3 seconds in order to record a dash. Here they are in action: 
+
+ <video class="centered-video" width="600" controls>
+  <source src="./DotDashAndSpace.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
