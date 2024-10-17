@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
+      <h2 class="nav-title">Week 6: Electronic Inputs</h2>
     </div>
     <div class="navbar-nav">
       <h4><a class="nav-link" href="../index.html">Home</a></h4>
@@ -23,15 +23,13 @@
 <div class="textcontainer">
 <p class="margin">   </p>
 
-<h3>Week 6: Electronic Inputs</h3>
 
-<h4>Assignment 1: Capacitive Sensor<h4>
-
-  Okay here's my dream capacitive sensor:
+<h3>Assignment 1: Capacitive Sensor<h3>
+<h4>  Okay here's my dream capacitive sensor: <br>
 
 <img src="./MorseCodeMachine.jpg" alt="MorseCodeMachine" class="tool-box-pic">
 
-A morse code encoder that relies on the distance between two sensors to determine dots and dashes and slashes and stuff. so far this is what I have: 
+A morse code encoder that relies on the distance between two sensors to determine dots and dashes and slashes and stuff. so far this is what I have: <br>
 
 <img src="./FirstCapSetUp.jpeg" alt="Capacitor Set Up" class="tool-box-pic">
 
@@ -39,9 +37,9 @@ Awesome. The next step is to figure out how to collect data for calibration of t
 and turn this: 
 <img src="./UnCalGraph.jpg" alt="Uncalibrated Graph" class="tool-box-pic">
 
-into something useful. 
+into something useful. <br>
 
-here is the code that I'm using to take measurements for my data collection. Note that I have a 1000 ms Delay jut to make it easier to read for data collection. I will be deleting this when it's action time: 
+here is the code that I'm using to take measurements for my data collection. Note that I have a 1000 ms Delay jut to make it easier to read for data collection. I will be deleting this when it's action time: <br>
 
 <!-- Arduino Code Block -->
   <pre><code class="language-cpp">
@@ -93,17 +91,17 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
 
 
   </code></pre>
-
- okay after coming up with some sketchy capcitor measuring methods...
+<br>
+ okay after coming up with some sketchy capcitor measuring methods...<br>
 
 <img src="./SketchyMeasuringMethod.jpeg" alt="SketchyMeasuringMethod" class="tool-box-pic">
 
 
-  here is my final graph: 
+  here is my final graph: <br>
 
   <img src="./CapacitorGraph.jpg" alt="Capacitor Graph" class="tool-box-pic">
 
-  As we can see, as the two copper plates touch each other, the value exceeds 5000 units! This is going to be useful in programming my morse code encoder. I want to alter my code so that once the value exceeds 5000 units, it will print a dot out on the screen. To do this I just added this line of code: 
+  As we can see, as the two copper plates touch each other, the value exceeds 5000 units! This is going to be useful in programming my morse code encoder. I want to alter my code so that once the value exceeds 5000 units, it will print a dot out on the screen. To do this I just added this line of code: <br> 
 
   <pre><code class="language-cpp">  
 Copy code
@@ -112,7 +110,7 @@ if (result > 5000) {
 }
 
   </code></pre>
-
+<br>
 added this to make a clear space to print: 
   <pre><code class="language-cpp"> 
   // Print newlines to simulate clearing the screen
@@ -120,7 +118,7 @@ added this to make a clear space to print:
     Serial.println();            // Print 10 newlines to create space
   }
     </code></pre>
-
+<br>
 and deleted this line: 
   <pre><code class="language-cpp">  
 Serial.println(result);
@@ -131,16 +129,16 @@ Also: (also), I added popsicle sticks to my coppers in order to make them easier
 
 Should I add smiley faces to them? 
   <img src="./CopperLovers.jpeg" alt="CopperLovers" class="tool-box-pic">
-Too late. I've already done it. Copper and Coppertino are lovers. 
+Too late. I've already done it. Copper and Coppertino are lovers. <br>
 
-Here they are in action: 
+Here they are in action: <br>
 
 <video class="centered-video" width="600" controls>
   <source src="./DotAndDash.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-As you can see, I've added dashes with some more timer and if functions. Now I want to get to the fun part. I've found this on google: 
+As you can see, I've added dashes with some more timer and if functions. Now I want to get to the fun part. I've found this on google: <br>
 
 <p> <br><b>Dot length:</b>  A dot is one unit long. <br>
 <b>Dash length:</b>  A dash is three units long. <br>
@@ -240,7 +238,7 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
     return sum;                        // Return the sum as the result
 }
  </code></pre>
-
+<br>
  um so basically this relies on a timer that resets after everytime a new character is recorded. The unit of time right now is half of a second, meaning you will need to hold copper and coppertino together for 3 seconds in order to record a dash. Here they are in action: 
 
  <video class="centered-video" width="600" controls>
