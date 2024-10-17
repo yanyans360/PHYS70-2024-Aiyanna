@@ -476,3 +476,16 @@ h3 {
     height: auto; /* Maintains aspect ratio */
     border-radius: 30px; /* Optional: Rounded corners */
 }
+
+/* Custom code block styling */
+code {
+  background-color: #fcf1de; /* Dark background for code block */
+  color: #EEE7E8; /* Light text color */
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+  padding: 10px;
+  display: block;
+  white-space: pre-wrap; /* Preserve indentation and line breaks */
+  border-radius: 5px;
+  overflow-x: auto; /* Enable horizontal scrolling if the code is too wide */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}

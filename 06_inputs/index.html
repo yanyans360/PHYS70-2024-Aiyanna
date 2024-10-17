@@ -25,7 +25,70 @@
 
 <h3>Week 6: Electronic Inputs</h3>
 
-<h4>Assignment 1: Capactive Sensor<h4>
+<h4>Assignment 1: Capacitive Sensor<h4>
+
+  Okay here's my dream capacitive sensor:
+
+<img src="./MorseCodeMachine.jpg" alt="MorseCodeMachine" class="tool-box-pic">
+
+A morse code encoder that relies on the distance between two sensors to determine dots and dashes and slashes and stuff. so far this is what I have: 
+
+<img src="./FirstCapSetUp.jpeg" alt="Capacitor Set Up" class="tool-box-pic">
+
+Awesome. The next step is to figure out how to collect data for calibration of the sensor!
+and turn this: 
+<img src="./UnCalGraph.jpg" alt="Uncalibrated Graph" class="tool-box-pic">
+
+into something useful. 
+
+here is the code that I'm using to take measurements for my data collection. Note that I have a 1000 ms Delay jut to make it easier to read for data collection. I will be deleting this when it's action time: 
+
+<!-- Arduino Code Block -->
+  <pre><code class="language-cpp">
+long result;  // variable for the result of the tx_rx measurement.
+int analog_pin = A3;
+int tx_pin = 4;
+
+void setup() {
+    pinMode(tx_pin, OUTPUT);  // Pin 4 provides the voltage step
+    Serial.begin(9600);
+}
+
+void loop() {
+    result = tx_rx(); 
+    Serial.println(result);
+    delay(1000);  // Delay 1 second between readings
+}
+
+long tx_rx() {
+    int read_high;
+    int read_low;
+    int diff;
+    long sum = 0;
+    int N_samples = 100;
+
+    for (int i = 0; i < N_samples; i++) {
+        digitalWrite(tx_pin, HIGH);  // Step voltage high on conductor 1
+        read_high = analogRead(analog_pin);  // Measure response of conductor 2
+        delayMicroseconds(100);  // Wait for steady state
+        digitalWrite(tx_pin, LOW);  // Step voltage to zero on conductor 1
+        read_low = analogRead(analog_pin);  // Measure response of conductor 2
+        diff = read_high - read_low;  // Difference between high and low readings
+        sum += diff;
+    }
+    return sum;
+}
+
+  </code></pre>
+
+<p> okay after coming up with some sketchy capcitor measuring methods: <p>
+
+<img src="./SketchyMeasuringMethod.jpeg" alt="SketchyMeasuringMethod" class="tool-box-pic">
+
+
+  here is my final graph: 
+
+  <img src="./CapacitorGraph.jpg" alt="Capacitor Graph" class="tool-box-pic">
 
 <h4>Assignment 2: [Use + Calibrate Another Sensor]</h4>
 
