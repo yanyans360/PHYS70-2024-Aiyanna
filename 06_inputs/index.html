@@ -45,39 +45,52 @@ here is the code that I'm using to take measurements for my data collection. Not
 
 <!-- Arduino Code Block -->
   <pre><code class="language-cpp">
-long result;  // variable for the result of the tx_rx measurement.
-int analog_pin = A3;
-int tx_pin = 4;
+long result;            // Variable for the result of the tx_rx measurement
+int analog_pin = A3;    // Analog input pin
+int tx_pin = 4;         // Digital output pin
+
+unsigned long previousMillis = 0;   // Stores the last time the result was printed
+const long interval = 500;          // Interval at which to print (in milliseconds)
 
 void setup() {
-    pinMode(tx_pin, OUTPUT);  // Pin 4 provides the voltage step
-    Serial.begin(9600);
+    pinMode(tx_pin, OUTPUT);        // Pin 4 provides the voltage step
+    Serial.begin(9600);             // Begin serial communication at 9600 baud rate
 }
 
 void loop() {
-    result = tx_rx(); 
-    Serial.println(result);
-    delay(1000);  // Delay 1 second between readings
+  unsigned long currentMillis = millis();   // Get the current time in milliseconds
+  
+  // Check if the time interval has passed (500 ms in this case)
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;  // Save the current time for the next comparison
+
+    result = tx_rx();                // Call the tx_rx function to get the result
+
+  }
 }
 
-long tx_rx() {
-    int read_high;
-    int read_low;
-    int diff;
-    long sum = 0;
-    int N_samples = 100;
+long tx_rx() {                       // Function to execute tx_rx algorithm
+  int read_high;
+  int read_low;
+  int diff;
+  long int sum;
+  int N_samples = 100;               // Number of samples to take
 
-    for (int i = 0; i < N_samples; i++) {
-        digitalWrite(tx_pin, HIGH);  // Step voltage high on conductor 1
-        read_high = analogRead(analog_pin);  // Measure response of conductor 2
-        delayMicroseconds(100);  // Wait for steady state
-        digitalWrite(tx_pin, LOW);  // Step voltage to zero on conductor 1
-        read_low = analogRead(analog_pin);  // Measure response of conductor 2
-        diff = read_high - read_low;  // Difference between high and low readings
-        sum += diff;
-    }
-    return sum;
+  sum = 0;
+
+  for (int i = 0; i < N_samples; i++) {
+    digitalWrite(tx_pin, HIGH);      // Step the voltage high on conductor 1
+    read_high = analogRead(analog_pin);  // Measure response of conductor 2
+    delayMicroseconds(10);           // Delay to reach steady state
+    digitalWrite(tx_pin, LOW);       // Step the voltage to zero on conductor 1
+    read_low = analogRead(analog_pin);   // Measure response of conductor 2
+    diff = read_high - read_low;     // Difference between high and low readings
+    sum += diff;                     // Sums up N_samples of these measurements
+  }
+  
+  return sum;                        // Return the sum as the result
 }
+
 
   </code></pre>
 
@@ -102,7 +115,6 @@ if (result > 5000) {
 
 added this to make a clear space to print: 
   <pre><code class="language-cpp"> 
-void loop() {
   // Print newlines to simulate clearing the screen
   for (int i = 0; i < 10; i++) {
     Serial.println();            // Print 10 newlines to create space
@@ -119,7 +131,14 @@ Also: (also), I added popsicle sticks to my coppers in order to make them easier
 
 Should I add smiley faces to them? 
   <img src="./CopperLovers.jpeg" alt="CopperLovers" class="tool-box-pic">
-Too late. I've already done it. Coppertina and Coppertino are lovers. 
+Too late. I've already done it. Copper and Coppertino are lovers. 
+
+Here they are in action: 
+
+  <video width="600" controls>
+    <source src="./DotAndDash.mov" type="video/quicktime">
+    Your browser does not support the video tag.
+  </video>
 
 <h4>Assignment 2: [Use + Calibrate Another Sensor]</h4>
 
