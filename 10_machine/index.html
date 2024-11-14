@@ -51,6 +51,234 @@
   Your browser does not support the video tag.
 </video>
 
+okay so here I'm adding in a bunch of blocks of code that I wil add captions to later: 
+
+ <pre><code class="language-cpp">  
+  #include <ESP32Servo.h>
+
+// Define pin connections
+const int vrxPin = 2;
+const int vryPin = 3;
+const int motorPin = 4;
+
+Servo servo;
+
+void setup() {
+  // Initialize Serial Monitor for debugging
+  Serial.begin(115200);
+
+  servo.attach(motorPin);
+  pinMode(vrxPin, INPUT);
+  pinMode(vryPin, INPUT);
+}
+
+void loop() {
+  int xValue = analogRead(vrxPin);
+
+  // Map the joystick value to the servo angle
+  int servoAngle = map(xValue, 0, 4095, 0, 180);
+
+  if (xValue >= 2300 && xValue <= 2350) {
+    servoAngle = 90;
+  }
+
+  // Debug output to Serial Monitor
+  Serial.print("Joystick X Value: ");
+  Serial.print(xValue);
+  Serial.print(" | Servo Angle: ");
+  Serial.println(servoAngle);
+
+  // Write the angle to the servo
+  servo.write(servoAngle);
+  
+  // Delay might be necessary but might not be
+  delay(50);
+}
+
+ </code></pre>
+
+  <pre><code class="language-cpp"> 
+  #include <ESP32Servo.h>
+
+// Define pin connections
+const int vrxPin = 2;
+const int vryPin = 3;
+const int servoxPin = 4;
+const int reversePin = 7;
+const int forwardPin = 6;
+
+Servo servo;
+
+void setup() {
+  // Initialize Serial Monitor for debugging
+  Serial.begin(115200);
+
+  servo.attach(servoxPin);
+  pinMode(vrxPin, INPUT);
+  pinMode(vryPin, INPUT);
+  pinMode(reversePin, OUTPUT);
+  pinMode(forwardPin, OUTPUT);
+}
+
+void loop() {
+  int xValue = analogRead(vrxPin);
+  int yValue = analogRead(vryPin);
+
+  // Map the joystick value to the servo angle
+  int servoAngle = map(xValue, 0, 4095, 0, 180);
+
+  if (xValue >= 2000 && xValue <= 2500) {
+    servoAngle = 90;
+  }
+
+  if (yValue >= 2100 && yValue <= 2600) {
+    digitalWrite(forwardPin, LOW);
+    digitalWrite(reversePin, LOW);
+  }
+  else if (yValue > 2290) {
+    digitalWrite(forwardPin, HIGH);
+    digitalWrite(reversePin, LOW);
+  }
+  else {
+    digitalWrite(forwardPin, LOW);
+    digitalWrite(reversePin, HIGH);
+  }
+
+  // Debug output to Serial Monitor
+  Serial.print("Joystick X Value: ");
+  Serial.print(xValue);
+  Serial.print(" | Servo Angle: ");
+  Serial.print(servoAngle);
+  Serial.print(" | Joystick Y Value: ");
+  Serial.print(yValue);
+  if (yValue >= 2100 && yValue <= 2600) {
+    Serial.println(" | Direction: None");
+  }
+  else if (yValue > 2290) {
+    Serial.println(" | Direction: CW");
+  }
+  else {
+    Serial.println(" | Direction: CCW");
+  }
+
+  // Write the angle to the servo
+  servo.write(servoAngle);
+  
+  // Delay might be necessary but might not be
+  delay(50);
+} 
+ </code></pre>
+
+  <pre><code class="language-cpp"> 
+    Serial.println(" | Direction: CCW");
+  }
+  else {
+    Serial.println(" | Direction: CW");
+  }
+
+  // Write the angle to the servo
+  servo.write(servoAngle);
+  
+  // Delay might be necessary but might not be
+  delay(50);
+}
+ </code></pre>
+  <pre><code class="language-cpp"> 
+    #include <ESP32Servo.h>
+
+// Define pin connections
+const int vrxPin = 2;
+const int vryPin = 3;
+const int servoxPin = 4;
+const int reversePin = 7;
+const int forwardPin = 6;
+
+Servo servo;
+
+void setup() {
+  // Initialize Serial Monitor for debugging
+  Serial.begin(115200);
+
+  servo.attach(servoxPin);
+  pinMode(vrxPin, INPUT);
+  pinMode(vryPin, INPUT);
+  pinMode(reversePin, OUTPUT);
+  pinMode(forwardPin, OUTPUT);
+}
+
+void loop() {
+  int xValue = analogRead(vrxPin);
+  int yValue = analogRead(vryPin);
+
+  // Map the joystick value to the servo angle
+  int servoxAngle = map(xValue, 0, 4095, 0, 180);
+
+  // Uncomment this for snake head robot
+  // int servoyAngle = map(xValue, 0, 4095, 0, 180);
+
+  if (xValue >= 2000 && xValue <= 2500) {
+    servoxAngle = 90;
+  }
+
+  // Uncomment this for snake head robot
+  // if (xValue >= 2100 && xValue <= 2600) {
+  //   servoxAngle = 90;
+  // }
+
+  // Uncomment this for locomotive robot
+  if (yValue >= 2100 && yValue <= 2600) {
+    digitalWrite(forwardPin, LOW);
+    digitalWrite(reversePin, LOW);
+  }
+  else if (yValue > 2290) {
+    digitalWrite(forwardPin, HIGH);
+    digitalWrite(reversePin, LOW);
+  }
+  else {
+    digitalWrite(forwardPin, LOW);
+    digitalWrite(reversePin, HIGH);
+  }
+
+  // Debug output to Serial Monitor
+  Serial.print("Joystick X Value: ");
+  Serial.print(xValue);
+  Serial.print(" | Servo X Angle: ");
+  Serial.print(servoxAngle);
+  Serial.print(" | Joystick Y Value: ");
+  
+  // Uncomment this for snake head robot
+  // Serial.print(" | Servo Y Angle: ");
+  // Serial.println(servoyAngle);
+
+  // Uncomment this for locomotive robot
+  Serial.print(yValue);
+  if (yValue >= 2100 && yValue <= 2600) {
+    Serial.println(" | Direction: None");
+  }
+  else if (yValue > 2290) {
+    Serial.println(" | Direction: CCW");
+  }
+  else {
+    Serial.println(" | Direction: CW");
+  }
+
+  // Write the angle to the servo
+  servo.write(servoxAngle);
+
+  // Uncomment this for snake head robot
+  // servo.write(servoyAngle);
+  
+  // Delay might be necessary but might not be
+  delay(50);
+}
+ </code></pre>
+
+<video class="centered-video" width="600" controls>
+  <source src="./TwoServos.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 <h3> 2. locomotion <h3>
 
 <h4> Alrighty so we've just been informed that we are going with locomation which is driving their cart using. we're going to have to adapt!
