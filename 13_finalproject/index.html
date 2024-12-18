@@ -37,7 +37,216 @@
 <div class="textcontainer">
 <p class="margin"></p>
 
+<h3>Here are all of my photos and videos in order </h3>
+<h3>Here is all of my iterations of code: </h3>
 
+This is the code I used to test my motors.
+ <pre><code class="language-cpp">
+ void setup() {
+  Serial.begin(115200); // Start Serial communication
+  delay(100);           // Allow Serial to initialize
+  //Serial.println("Hello from setup!");
+  
+  pinMode(10, OUTPUT);  // Direction pin for left motor
+  pinMode(9, OUTPUT);  // Step pin for left motor
+  pinMode(8, OUTPUT);  // Direction pin for left motor
+  pinMode(D7, OUTPUT);  // Step pin for left motor
+}
+
+void loop() {
+  // Set direction to LOW (clockwise)
+  digitalWrite(10, LOW);
+  digitalWrite(8, LOW);
+
+  // Generate step pulses
+  digitalWrite(9, HIGH);
+  digitalWrite(D7, HIGH);
+  delay(10); // Adjust speed by changing delay
+  digitalWrite(9, LOW);
+  digitalWrite(D7, LOW);
+  delay(10);
+
+  // Add a delay for Serial output visibility
+  delay(5);
+  Serial.println("Stepping...");
+}
+ </code></pre>
+ This is the code I use to test whether direction pins are working. 
+  <pre><code class="language-cpp">
+  const int DIR_PIN_RIGHT = 8; // Direction pin for the right motor
+const int STEP_PIN_RIGHT = D7; // Step pin for the right motor
+const int DIR_PIN_LEFT = D10;  // Direction pin for the left motor
+const int STEP_PIN_LEFT = D9;  // Step pin for the left motor
+
+void setup() {
+  // Set up motor pins as outputs
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  Serial.begin(115200);
+  delay(100);
+  Serial.println("Testing motor directions...");
+}
+
+void loop() {
+  // Test RIGHT motor with DIR_PIN_HIGH
+  Serial.println("Right Motor: DIR = HIGH (Counterclockwise)");
+  digitalWrite(DIR_PIN_RIGHT, HIGH);
+  runStepper(STEP_PIN_RIGHT);
+
+  delay(2000); // Wait 2 seconds
+
+  // Test RIGHT motor with DIR_PIN_LOW
+  Serial.println("Right Motor: DIR = LOW (Clockwise)");
+  digitalWrite(DIR_PIN_RIGHT, LOW);
+  runStepper(STEP_PIN_RIGHT);
+
+  delay(2000); // Wait 2 seconds
+
+  // Test LEFT motor with DIR_PIN_HIGH
+  Serial.println("Left Motor: DIR = HIGH (Counterclockwise)");
+  digitalWrite(DIR_PIN_LEFT, HIGH);
+  runStepper(STEP_PIN_LEFT);
+
+  delay(2000); // Wait 2 seconds
+
+  // Test LEFT motor with DIR_PIN_LOW
+  Serial.println("Left Motor: DIR = LOW (Clockwise)");
+  digitalWrite(DIR_PIN_LEFT, LOW);
+  runStepper(STEP_PIN_LEFT);
+
+  delay(2000); // Wait 2 seconds
+}
+
+// Function to run the motor
+void runStepper(int stepPin) {
+  for (int i = 0; i < 200; i++) { // Run 200 steps
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(1000); // Adjust for speed
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(1000);
+  }
+}
+
+ </code></pre>
+This is the code that I used to move the pen left and right using buttons on a server. 
+<pre><code class="language-cpp">
+  #include <WiFi.h>
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int DIR_PIN_RIGHT = D4; // Direction pin for the first motor (right)
+const int DIR_PIN_LEFT = D6;   // Direction pin for the second motor (left)
+const int STEP_PIN_RIGHT = D9; // Step pin for the first motor (right)
+const int STEP_PIN_LEFT = D7;  // Step pin for the second motor (left)
+
+// Function to control motors
+void moveMotors(int direction, int durationMs) {
+  // Set motor direction
+  digitalWrite(DIR_PIN_RIGHT, direction);
+  digitalWrite(DIR_PIN_LEFT, direction);
+
+  // Run motors for the specified duration
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delay(5); // Adjust speed by changing the delay
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delay(10);
+  }
+
+  // Stop motors after running
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+void setup() {
+  Serial.begin(115200); // Initialize serial communication at 115200 baud rate
+
+  // Configure motor control pins as outputs
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  // Connect to WiFi
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+void loop() {
+  WiFiClient client = server.available(); // Listen for incoming clients
+
+  if (client) { // If you get a client
+    Serial.println("New Client."); // Print a message to the Serial Monitor
+    String currentLine = "";       // Store incoming data from the client
+
+    while (client.connected()) { // Loop while the client is connected
+      if (client.available()) {  // If there’s bytes to read from the client
+        char c = client.read();  // Read a byte
+        Serial.write(c);         // Print it out to the Serial Monitor
+
+        if (c == '\n') { // If the byte is a newline character
+          if (currentLine.length() == 0) { // HTTP request ends with a blank line
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+
+            // Web interface
+            client.print("Click <a href=\"/LEFT\">here</a> to move the pen left.<br>");
+            client.print("Click <a href=\"/RIGHT\">here</a> to move the pen right.<br>");
+
+            client.println(); // End of HTTP response
+            break;
+          } else {
+            currentLine = "";
+          }
+        } else if (c != '\r') { // Ignore carriage returns
+          currentLine += c;
+        }
+
+           // Check for commands and run motors
+        if (currentLine.endsWith("GET /LEFT")) {
+          Serial.println("Move Left command received");
+          moveMotors(LOW, 3000); // Motors move clockwise for 3000 ms (3 seconds), causing the pen to go left
+        }
+        if (currentLine.endsWith("GET /RIGHT")) {
+          Serial.println("Move Right command received");
+          moveMotors(HIGH, 3000); // Motors move counterclockwise for 3000 ms (3 seconds), causing the pen to go right
+        }
+      }
+    }
+
+
+    // Close the connection
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+}
+ </code></pre>
+ 
 </div>
 </xmp>
 </body>
