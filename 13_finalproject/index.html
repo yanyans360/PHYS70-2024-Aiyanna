@@ -27,7 +27,7 @@
     </nav>
     <div class="title-row">
       <h2 class="nav-title">
-       <br>Final Project: [INSERT FINAL PROJECT HERE].
+       <br>Final Project: Drawing Machine.
       </h2>
   </div>
 </nav>
@@ -37,8 +37,149 @@
 <div class="textcontainer">
 <p class="margin"></p>
 
-<h3>Here are all of my photos and videos in order </h3>
+<h3>Here are all of my photos and videos in order: </h3>
+
+<h4>
+
+<p class="margin"></p>
+
+
+So I started with this as my inspiration: 
+<p class="margin"></p>
+
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528989984271" height="467" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+
+It's a core xy machine that can draw on a 3d plane with only two motors needed. 
+
+<p class="margin"></p>
+
+Here were the steps I took to make my mvp, which was just building the first prototype, as I already knew how to control a stepper motor from networking week: 
+
+<p class="margin"></p>
+
+Screws and couplers for the timing belt:
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370077" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+
+I laser cut a cardboard prototype to house the timing belt:
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370078" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+
+3d Printing stands for the two corners that didn't have stepper motors. The holes here are slightly bigger than the screws so they can turn without friction: 
+
+<p class="margin"></p>
+
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370080" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370086" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+
+here is the first iteration of the pen holder. With screws holes on the side for tightening the pen into place: 
+
+<p class="margin"></p>
+
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370084" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+Assembling:
+
+<p class="margin"></p>
+
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370088" height="415" width="236" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370054" height="415" width="236" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370061" height="415" width="236" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+Here is a diagram that explains how the core xy machine integrated the two stepper motors together to create xy movement: 
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991383470" height="374" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+Wiring both stepper motors on one board: 
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370045" height="359" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370041" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370024" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+^^ In that third photo, you can see the two series of three yellow wires. Those are there so the stepper motors can do "microstepping"
+and smooth out the pen movement, making it less jerky. 
+
+<p class="margin"></p>
+
+
+Recutting the frame out of wood: 
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370057" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin"></p>
+
+Final setup for presentation day!
+
+<p class="margin"></p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991383529" height="714" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991383540" height="714" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991383541" height="714" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370014" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370015" height="560" width="345" frameborder="0" scrolling="no" ></iframe>
+
+
+<p class="margin"></p>
+
+Drawing made with the machine: 
+
+<p class="margin"></p> 
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991370001" height="900" width="600" frameborder="0" scrolling="no" ></iframe>
+
+
+
+
+
+<p class="margin"></p>
 <h3>Here is all of my iterations of code: </h3>
+
+<h4>
+
+<p class="margin"></p>
 
 This is the code I used to test my motors.
  <pre><code class="language-cpp">
@@ -246,7 +387,828 @@ void loop() {
   }
 }
  </code></pre>
- 
+
+ this code has buttons for all four directions
+
+ <pre><code class="language-cpp">
+  #include <WiFi.h>
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int DIR_PIN_RIGHT = D4; // Direction pin for the first motor (right)
+const int DIR_PIN_LEFT = D6;   // Direction pin for the second motor (left)
+const int STEP_PIN_RIGHT = D9; // Step pin for the first motor (right)
+const int STEP_PIN_LEFT = D7;  // Step pin for the second motor (left)
+
+// Function to control motors
+void moveMotors(int direction, int durationMs) {
+  // Set motor direction
+  digitalWrite(DIR_PIN_RIGHT, direction); 
+  digitalWrite(DIR_PIN_LEFT, direction);
+
+  // Run motors for the specified duration
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delay(3); // Adjust speed by changing the delay
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delay(10);
+  }
+
+  // Stop motors after running
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+// Function to move motors for UP or DOWN movement
+void movePen(bool up, int durationMs) {
+  if (up) {
+    Serial.println("Moving pen UP...");
+    digitalWrite(DIR_PIN_RIGHT, LOW);  // Right motor clockwise
+    digitalWrite(DIR_PIN_LEFT, HIGH); // Left motor counterclockwise
+  } else {
+    Serial.println("Moving pen DOWN...");
+    digitalWrite(DIR_PIN_RIGHT, HIGH); // Right motor counterclockwise
+    digitalWrite(DIR_PIN_LEFT, LOW);   // Left motor clockwise
+  }
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delay(5);
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delay(10);
+  }
+
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+void setup() {
+  Serial.begin(115200); // Initialize serial communication at 115200 baud rate
+
+  // Configure motor control pins as outputs
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  // Connect to WiFi
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+void loop() {
+  WiFiClient client = server.available(); // Listen for incoming clients
+
+  if (client) { // If you get a client
+    Serial.println("New Client."); // Print a message to the Serial Monitor
+    String currentLine = "";       // Store incoming data from the client
+
+    while (client.connected()) { // Loop while the client is connected
+      if (client.available()) {  // If there’s bytes to read from the client
+        char c = client.read();  // Read a byte
+        Serial.write(c);         // Print it out to the Serial Monitor
+
+        if (c == '\n') { // If the byte is a newline character
+          if (currentLine.length() == 0) { // HTTP request ends with a blank line
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+
+           // Web interface with four buttons
+            client.print("Click <a href=\"/LEFT\">here</a> to move the pen left.<br>");
+            client.print("Click <a href=\"/RIGHT\">here</a> to move the pen right.<br>");
+            client.print("Click <a href=\"/UP\">here</a> to move the pen up.<br>");
+            client.print("Click <a href=\"/DOWN\">here</a> to move the pen down.<br>");
+
+            client.println(); // End of HTTP response
+            break;
+          } else {
+            currentLine = "";
+          }
+        } else if (c != '\r') { // Ignore carriage returns
+          currentLine += c;
+        }
+
+         // Handle commands for each button
+        if (currentLine.endsWith("GET /LEFT")) {
+          Serial.println("Move Left command received");
+          moveMotors(LOW, 3000);
+        }
+        if (currentLine.endsWith("GET /RIGHT")) {
+          Serial.println("Move Right command received");
+          moveMotors(HIGH, 3000);
+        }
+        if (currentLine.endsWith("GET /UP")) {
+          Serial.println("Move Up command received");
+          movePen(true, 3000);
+        }
+        if (currentLine.endsWith("GET /DOWN")) {
+          Serial.println("Move Down command received");
+          movePen(false, 3000);
+        }
+      }
+    }
+
+
+    // Close the connection
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+}
+
+
+ </code></pre>
+This is the code that allows me to use the arrows of my keyboard to control my pen holder: 
+
+  <pre><code class="language-cpp">
+  #include <WiFi.h>
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int DIR_PIN_RIGHT = D4; // Direction pin for the first motor (right)
+const int DIR_PIN_LEFT = D6;  // Direction pin for the second motor (left)
+const int STEP_PIN_RIGHT = D9; // Step pin for the first motor (right)
+const int STEP_PIN_LEFT = D7;  // Step pin for the second motor (left)
+
+// Function to move motors in the same direction
+void moveMotors(int direction, int durationMs) {
+  digitalWrite(DIR_PIN_RIGHT, direction);
+  digitalWrite(DIR_PIN_LEFT, direction);
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delay(5);
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delay(10);
+  }
+
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+// Function to move motors for UP or DOWN movement
+void movePen(bool up, int durationMs) {
+  if (up) {
+    digitalWrite(DIR_PIN_RIGHT, LOW);  // Right motor clockwise
+    digitalWrite(DIR_PIN_LEFT, HIGH); // Left motor counterclockwise
+  } else {
+    digitalWrite(DIR_PIN_RIGHT, HIGH); // Right motor counterclockwise
+    digitalWrite(DIR_PIN_LEFT, LOW);   // Left motor clockwise
+  }
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delay(2);
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delay(10);
+  }
+
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+unsigned long lastCommandTime = 0;
+const int cooldown = 300; // Cooldown in milliseconds
+
+
+void loop() {
+  WiFiClient client = server.available();
+
+  if (client) {
+    Serial.println("New Client.");
+    String currentLine = "";
+
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+
+        if (c == '\n') {
+          if (currentLine.length() == 0) {
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+
+            // Web interface with JavaScript for arrow key controls
+            client.println("<html><body>");
+            client.println("<h1>Pen Control</h1>");
+            client.println("<p>Use arrow keys to control the pen:</p>");
+
+            // Add JavaScript block
+            client.println("<script>");
+            client.println("let lastKey = null;");
+            client.println("let debounceTime = 300;"); // Adjust debounce time (milliseconds)
+            client.println("let lastKeyTime = 0;");
+            client.println("document.addEventListener('keydown', function(event) {");
+            client.println("  let now = Date.now();");
+            client.println("  if (lastKey !== event.key || now - lastKeyTime > debounceTime) {");
+            client.println("    lastKey = event.key;");
+            client.println("    lastKeyTime = now;");
+            client.println("    if (event.key === 'ArrowLeft') { fetch('/LEFT'); }");
+            client.println("    if (event.key === 'ArrowRight') { fetch('/RIGHT'); }");
+            client.println("    if (event.key === 'ArrowUp') { fetch('/UP'); }");
+            client.println("    if (event.key === 'ArrowDown') { fetch('/DOWN'); }");
+            client.println("  }");
+            client.println("});");
+            client.println("document.addEventListener('keyup', function(event) {");
+            client.println("  lastKey = null;"); // Reset on key release
+            client.println("});");
+            client.println("</script>");
+
+            client.println("</body></html>");
+
+            client.println(); // End of HTTP response
+            break;
+          } else {
+            currentLine = "";
+          }
+  
+
+        } else if (c != '\r') {
+          currentLine += c;
+        }
+
+        // Handle commands for each key
+        if (currentLine.endsWith("GET /LEFT")) {
+          Serial.println("Move Left command received");
+          moveMotors(LOW, 200);
+        }
+        if (currentLine.endsWith("GET /RIGHT")) {
+          Serial.println("Move Right command received");
+          moveMotors(HIGH, 200);
+        }
+        if (currentLine.endsWith("GET /UP")) {
+          Serial.println("Move Up command received");
+          movePen(true, 200);
+        }
+        if (currentLine.endsWith("GET /DOWN")) {
+          Serial.println("Move Down command received");
+          movePen(false, 200);
+        }
+      }
+    }
+
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+}
+ </code></pre>
+
+This code is similar to the last one but is specialized for microstepping and faster reaction time from each button press. 
+
+<pre><code class="language-cpp">
+
+#include <WiFi.h>
+#include <ESP32Servo.h> // Include the Servo library
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int DIR_PIN_RIGHT = D4; // Direction pin for the first motor (right)
+const int DIR_PIN_LEFT = D6;  // Direction pin for the second motor (left)
+const int STEP_PIN_RIGHT = D9; // Step pin for the first motor (right)
+const int STEP_PIN_LEFT = D7;  // Step pin for the second motor (left)
+
+const int movementDurationMs = 100; // Duration in milliseconds
+
+
+// Servo control
+const int SERVO_PIN = D2; // GPIO connected to the servo signal pin
+Servo myServo; // Create a Servo object
+
+
+// Function to move motors in the same direction
+void moveMotors(int direction, int durationMs) {
+  digitalWrite(DIR_PIN_RIGHT, direction);
+  digitalWrite(DIR_PIN_LEFT, direction);
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delayMicroseconds(50); // Shorter delay for higher speed
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delayMicroseconds(50); // Adjust as needed
+  }
+
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+// Function to move motors for UP or DOWN movement
+void movePen(bool up, int durationMs) {
+  if (up) {
+    digitalWrite(DIR_PIN_RIGHT, LOW);  // Right motor clockwise
+    digitalWrite(DIR_PIN_LEFT, HIGH); // Left motor counterclockwise
+  } else {
+    digitalWrite(DIR_PIN_RIGHT, HIGH); // Right motor counterclockwise
+    digitalWrite(DIR_PIN_LEFT, LOW);   // Left motor clockwise
+  }
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delayMicroseconds(50); // Shorter delay for higher speed
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delayMicroseconds(50); // Adjust as needed
+  }
+
+  digitalWrite(STEP_PIN_RIGHT, LOW);
+  digitalWrite(STEP_PIN_LEFT, LOW);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  // Attach the servo to the specified pin
+  myServo.attach(SERVO_PIN);
+  myServo.write(90); // Initialize servo to the neutral position (90 degrees)
+
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+unsigned long lastCommandTime = 0;
+const int cooldown = 300; // Cooldown in milliseconds
+
+
+void loop() {
+  WiFiClient client = server.available();
+
+  if (client) {
+    Serial.println("New Client.");
+    String currentLine = "";
+
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        Serial.write(c);
+
+        if (c == '\n') {
+          if (currentLine.length() == 0) {
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+
+            // Web interface with JavaScript for arrow key controls and servo button
+            client.println("<html><body>");
+            client.println("<h1>Pen and Servo Control</h1>");
+            client.println("<p>Use arrow keys to control the pen:</p>");
+            client.println("<p><button onclick=\"fetch('/SERVO')\">Servo</button></p>");
+
+
+
+            // Add JavaScript block
+            client.println("<script>");
+            client.println("let lastKey = null;");
+            client.println("let debounceTime = 25;"); // Adjust debounce time (milliseconds)
+            client.println("let lastKeyTime = 0;");
+            client.println("document.addEventListener('keydown', function(event) {");
+            client.println("  let now = Date.now();");
+            client.println("  if (lastKey !== event.key || now - lastKeyTime > debounceTime) {");
+            client.println("    lastKey = event.key;");
+            client.println("    lastKeyTime = now;");
+            client.println("    if (event.key === 'ArrowLeft') { fetch('/LEFT'); }");
+            client.println("    if (event.key === 'ArrowRight') { fetch('/RIGHT'); }");
+            client.println("    if (event.key === 'ArrowUp') { fetch('/UP'); }");
+            client.println("    if (event.key === 'ArrowDown') { fetch('/DOWN'); }");
+            client.println("  }");
+            client.println("});");
+            client.println("document.addEventListener('keyup', function(event) {");
+            client.println("  lastKey = null;"); // Reset on key release
+            client.println("});");
+            client.println("</script>");
+
+            client.println("</body></html>");
+
+            client.println(); // End of HTTP response
+            break;
+          } else {
+            currentLine = "";
+          }
+  
+
+        } else if (c != '\r') {
+          currentLine += c;
+        }
+
+        // Handle commands for each key
+        // Handle commands for each key
+        if (currentLine.endsWith("GET /LEFT")) {
+          Serial.println("Move Left command received");
+          moveMotors(LOW, movementDurationMs);
+        }
+        if (currentLine.endsWith("GET /RIGHT")) {
+          Serial.println("Move Right command received");
+          moveMotors(HIGH, movementDurationMs);
+        }
+        if (currentLine.endsWith("GET /UP")) {
+          Serial.println("Move Up command received");
+          movePen(true, movementDurationMs);
+        }
+        if (currentLine.endsWith("GET /DOWN")) {
+          Serial.println("Move Down command received");
+          movePen(false, movementDurationMs);
+        }
+      }
+    }
+
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+}
+
+ </code></pre>
+This is my code updated to keep track of x and y positions as well as being able to store page width and height information. 
+  <pre><code class="language-cpp">
+
+
+#include <WiFi.h>
+#include <ESP32Servo.h> // Include the Servo library
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int DIR_PIN_RIGHT = D4; // Direction pin for the first motor (right)
+const int DIR_PIN_LEFT = D6;  // Direction pin for the second motor (left)
+const int STEP_PIN_RIGHT = D9; // Step pin for the first motor (right)
+const int STEP_PIN_LEFT = D7;  // Step pin for the second motor (left)
+
+const int movementDurationMs = 80; // Duration in milliseconds
+bool clientConnected = false;
+
+
+long widthSteps = 0;
+long heightSteps = 0;
+long stepCounter = 0;
+bool calibratingWidth = false;
+bool calibratingHeight = false;
+long currentX = 0;
+long currentY = 0;
+long widthCoordinate = 0;
+long heightCoordinate = 0;
+
+
+
+
+
+// Servo control
+const int SERVO_PIN = D2; // GPIO connected to the servo signal pin
+Servo myServo; // Create a Servo object
+
+int calculateSteps(int durationMs) {
+  int stepsPerMs = 1000 / 150;
+  return durationMs * stepsPerMs;
+}
+
+
+void moveMotors(int direction, int durationMs) {
+  digitalWrite(DIR_PIN_RIGHT, direction);
+  digitalWrite(DIR_PIN_LEFT, direction);
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delayMicroseconds(100);
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delayMicroseconds(50);
+  }
+
+  // Update step counter during calibration
+  if (calibratingWidth) {
+    stepCounter += (direction == HIGH) ? 1 : -1;
+  }
+
+  // Calculate steps moved and update currentX
+  int stepsMoved = calculateSteps(durationMs);
+  if (direction == HIGH) {
+    currentX += stepsMoved;
+  } else {
+    currentX -= stepsMoved;
+  }
+  // Print current X coordinate
+  Serial.print("Current X: ");
+  Serial.println(currentX);
+}
+
+
+void movePen(bool up, int durationMs) {
+  if (up) {
+    digitalWrite(DIR_PIN_RIGHT, LOW);
+    digitalWrite(DIR_PIN_LEFT, HIGH);
+  } else {
+    digitalWrite(DIR_PIN_RIGHT, HIGH);
+    digitalWrite(DIR_PIN_LEFT, LOW);
+  }
+
+  unsigned long startTime = millis();
+  while (millis() - startTime < durationMs) {
+    digitalWrite(STEP_PIN_RIGHT, HIGH);
+    digitalWrite(STEP_PIN_LEFT, HIGH);
+    delayMicroseconds(100);
+    digitalWrite(STEP_PIN_RIGHT, LOW);
+    digitalWrite(STEP_PIN_LEFT, LOW);
+    delayMicroseconds(50);
+  }
+
+  // Update step counter during calibration
+  if (calibratingHeight) {
+    stepCounter += (up) ? 1 : -1;
+  }
+
+  // Calculate steps moved and update currentY
+  int stepsMoved = calculateSteps(durationMs);
+  if (up) {
+    currentY += stepsMoved;
+  } else {
+    currentY -= stepsMoved;
+  }
+  Serial.print("Current Y: ");
+  Serial.println(currentY);
+}
+
+
+
+void zeroMachine() {
+  // Move to the bottom-left corner manually
+  // Reset step counters
+  stepCounter = 0;
+  calibratingWidth = true;
+  calibratingHeight = false;
+  Serial.println("Machine zeroed. Use RIGHT arrow to set width.");
+  // Reset coordinates
+  currentX = 0;
+  currentY = 0;
+  widthCoordinate = 0;
+  heightCoordinate = 0;
+
+  // Print current coordinates
+  Serial.print("Current X: ");
+  Serial.println(currentX);
+  Serial.print("Current Y: ");
+  Serial.println(currentY);
+}
+
+
+
+
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(DIR_PIN_RIGHT, OUTPUT);
+  pinMode(STEP_PIN_RIGHT, OUTPUT);
+  pinMode(DIR_PIN_LEFT, OUTPUT);
+  pinMode(STEP_PIN_LEFT, OUTPUT);
+
+  // Attach the servo to the specified pin
+  myServo.attach(SERVO_PIN);
+  myServo.write(90); // Initialize servo to the neutral position (90 degrees)
+
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("\nWiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+unsigned long lastCommandTime = 0;
+const int cooldown = 300; // Cooldown in milliseconds
+
+
+ void loop() {
+  WiFiClient client = server.available();
+
+  if (client) {
+    if (!clientConnected) {
+      //Serial.println("New Client.");
+      clientConnected = true;
+    }
+    String currentLine = "";
+
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+
+        if (c == '\n') {
+          if (currentLine.length() == 0) {
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println();
+          
+
+            // Web interface with JavaScript for arrow key controls, servo, and zero buttons
+            client.println("<html><body>");
+            client.println("<h1>Pen and Servo Control</h1>");
+            client.println("<p>Use arrow keys to control the pen:</p>");
+            client.println("<p><button onclick=\"fetch('/SERVO')\">Servo</button></p>");
+            client.println("<p><button onclick=\"fetch('/ZERO')\">Zero</button></p>");
+            client.println("<p><button onclick=\"fetch('/SET_WIDTH')\">Set Width</button></p>");
+            client.println("<p><button onclick=\"fetch('/SET_HEIGHT')\">Set Height</button></p>");
+            client.println("<h2>Current Coordinates</h2>");
+            client.println("<p>X: <span id=\"xCoord\">0</span></p>");
+            client.println("<p>Y: <span id=\"yCoord\">0</span></p>");
+            client.println("<script>");
+            client.println("function fetchCoordinates() {");
+            client.println("  fetch('/COORDS').then(response => response.json()).then(data => {");
+            client.println("    document.getElementById('xCoord').innerText = data.x;");
+            client.println("    document.getElementById('yCoord').innerText = data.y;");
+            client.println("  });");
+            client.println("}");
+            client.println("setInterval(fetchCoordinates, 1000);"); // Fetch coordinates every second
+            client.println("let lastKey = null;");
+            client.println("let debounceTime = 25;");
+            client.println("let lastKeyTime = 0;");
+            client.println("document.addEventListener('keydown', function(event) {");
+            client.println("  let now = Date.now();");
+            client.println("  if (lastKey !== event.key || now - lastKeyTime > debounceTime) {");
+            client.println("    lastKey = event.key;");
+            client.println("    lastKeyTime = now;");
+            client.println("    if (event.key === 'ArrowLeft') { fetch('/LEFT'); }");
+            client.println("    if (event.key === 'ArrowRight') { fetch('/RIGHT'); }");
+            client.println("    if (event.key === 'ArrowUp') { fetch('/UP'); }");
+            client.println("    if (event.key === 'ArrowDown') { fetch('/DOWN'); }");
+            client.println("  }");
+            client.println("});");
+            client.println("document.addEventListener('keyup', function(event) {");
+            client.println("  lastKey = null;");
+            client.println("});");
+            client.println("</script>");
+            client.println("</body></html>");
+
+
+            client.println(); // End of HTTP response
+            break;
+          } else {
+            currentLine = "";
+          }
+  
+
+        } else if (c != '\r') {
+          currentLine += c;
+        }
+
+        if (currentLine.endsWith("GET /LEFT")) {
+        Serial.println("Move Left command received");
+        moveMotors(LOW, movementDurationMs);
+        if (calibratingWidth) stepCounter--;
+        }
+        if (currentLine.endsWith("GET /RIGHT")) {
+          Serial.println("Move Right command received");
+          moveMotors(HIGH, movementDurationMs);
+          if (calibratingWidth) stepCounter++;
+        }
+        if (currentLine.endsWith("GET /UP")) {
+          Serial.println("Move Up command received");
+          movePen(true, movementDurationMs);
+          if (calibratingHeight) stepCounter++;
+        }
+        if (currentLine.endsWith("GET /DOWN")) {
+          Serial.println("Move Down command received");
+          movePen(false, movementDurationMs);
+          if (calibratingHeight) stepCounter--;
+        }
+        if (currentLine.endsWith("GET /ZERO")) {
+          Serial.println("Zero command received");
+          zeroMachine();
+        }
+        if (currentLine.endsWith("GET /SET_WIDTH")) {
+          Serial.println("Set Width command received");
+          widthCoordinate = currentX;
+          calibratingWidth = false;
+          Serial.print("Width set to X coordinate: ");
+          Serial.println(widthCoordinate);
+        }
+        if (currentLine.endsWith("GET /SET_HEIGHT")) {
+          Serial.println("Set Height command received");
+          heightCoordinate = currentY;
+          calibratingHeight = false;
+          Serial.print("Height set to Y coordinate: ");
+          Serial.println(heightCoordinate);
+        }
+        if (currentLine.endsWith("GET /COORDS")) {
+          String jsonResponse = "{\"x\":" + String(currentX) + ",\"y\":" + String(currentY) + "}";
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: application/json");
+          client.println("Connection: close");
+          client.println();
+          client.println(jsonResponse);
+          continue;
+        
+        }
+      }
+    }
+
+    client.stop();
+    //Serial.println("Client Disconnected.");
+    clientConnected = false;
+  }
+}
+
+ </code></pre>
+
+
 </div>
 </xmp>
 </body>

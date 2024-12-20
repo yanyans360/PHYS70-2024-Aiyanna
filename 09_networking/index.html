@@ -48,7 +48,98 @@
 
 <h3>Assignment: [Program something with IOT]</h4>
 
-  I'm currently in the process of figuring out github's "collaboration" feature. I will get back to this
+<h4> 
+
+  This week my partner was Katie Mueller and we decided to use ESP32 networking to control a stepper motor with our computer. Here is the code that we used to make that work: 
+
+<pre><code class="language-cpp">
+
+  #include <WiFi.h>
+
+// WiFi credentials
+const char *ssid = "MAKERSPACE";
+const char *password = "12345678";
+
+bool direction = true; // true for CW, false for CCW
+bool motorCommand = false; // flag to check if motor should run
+
+// Server on port 80
+WiFiServer server(80);
+
+// Motor control pins
+const int pin1 = D3;
+const int pin2 = D4;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Set up motor control pins
+  pinMode(pin1, OUTPUT);
+  pinMode(pin2, OUTPUT);
+
+  // Connect to WiFi
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+
+  server.begin();
+}
+
+          direction = true;  // Rotate motor clockwise
+          motorCommand = true; // Set command to run motor
+        }
+        if (currentLine.endsWith("GET /CCW")) {
+          direction = false;  // Rotate motor counterclockwise
+          motorCommand = true; // Set command to run motor
+        }
+      }
+    }
+
+    // close the connection:
+    client.stop();
+    Serial.println("Client Disconnected.");
+  }
+
+  // Run motor only if a command was received
+  if (motorCommand) {
+    for (int step = 0; step < 200; step++) {  // Example: run for 200 steps
+      if (direction) {
+        // Clockwise direction
+        digitalWrite(pin1, HIGH);
+        digitalWrite(pin2, LOW);
+        delay(10);  // Adjust delay for speed control
+
+        digitalWrite(pin1, LOW);
+        digitalWrite(pin2, HIGH);
+        delay(10);
+      } else {
+        // Counterclockwise direction
+        digitalWrite(pin1, LOW);
+        digitalWrite(pin2, HIGH);
+        delay(10);  // Adjust delay for speed control
+
+        digitalWrite(pin1, HIGH);
+        digitalWrite(pin2, LOW);
+        delay(10);
+      }
+    }
+    motorCommand = false;  // Reset command after completing steps
+  }
+}
+
+ </code></pre>
+
+Unfortunately, we don't have a video from this week, however I did end up using this technology in my final project. 
 
 
 
