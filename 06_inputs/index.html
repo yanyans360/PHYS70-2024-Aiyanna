@@ -39,26 +39,28 @@
 
 
 <h3>Assignment 1: Capacitive Sensor<h3>
+  <p class="margin">   </p>
 <h4>  Okay here's my dream capacitive sensor: <br>
 
 <img src="./MorseCodeMachine.jpg" alt="MorseCodeMachine" class="tool-box-pic">
-
-<br> A morse code encoder that relies on the distance between two sensors to determine dots and dashes and slashes and stuff. so far this is what I have: <br>
-
+<p class="margin">   </p>
+<br> It's a morse code encoder that relies on the distance between two sensors to determine dots and dashes and slashes and stuff. so far this is what I have: <br>
+<p class="margin">   </p>
 <img src="./FirstCapSetUp.jpeg" alt="Capacitor Set Up" class="tool-box-pic">
-
+<p class="margin">   </p>
 <br> I used the tx-rx capacitor sensing schematic from the intro to capacitance slide on the PS70 website: <br>
 
 <img src="./txrx_schematic.jpg" alt="txrx_schematic" class="tool-box-pic">
-
+<p class="margin">   </p>
 <br> Awesome. The next step is to figure out how to collect data for calibration of the sensor!
 and turn this: <br>
+<p class="margin">   </p>
 <img src="./UnCalGraph.jpg" alt="Uncalibrated Graph" class="tool-box-pic">
-
+<p class="margin">   </p>
 into something useful. <br>
-
+<p class="margin">   </p>
 here is the code that I'm using to take measurements for my data collection. Note that I have a 1000 ms Delay jut to make it easier to read for data collection. I will be deleting this when it's action time: <br>
-
+<p class="margin">   </p>
 <!-- Arduino Code Block -->
   <pre><code class="language-cpp">
 long result;            // Variable for the result of the tx_rx measurement
@@ -109,7 +111,7 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
 
 
   </code></pre>
-<br>
+<p class="margin">   </p>
  okay after coming up with some sketchy capcitor measuring methods...<br>
 
 <img src="./SketchyMeasuringMethod.jpeg" alt="SketchyMeasuringMethod" class="tool-box-pic">
@@ -119,7 +121,10 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
 
   <img src="./CapacitorGraph.jpg" alt="Capacitor Graph" class="tool-box-pic">
 
+  <p class="margin">   </p>
+
   As we can see, as the two copper plates touch each other, the value exceeds 5000 units! This is going to be useful in programming my morse code encoder. I want to alter my code so that once the value exceeds 5000 units, it will print a dot out on the screen. To do this I just added this line of code: <br> 
+  <p class="margin">   </p>
 
   <pre><code class="language-cpp">  
 Copy code
@@ -146,17 +151,29 @@ Also: (also), I added popsicle sticks to my coppers in order to make them easier
   <img src="./PopStickCopper.jpeg" alt="PopStickCopper" class="tool-box-pic">
 
 Should I add smiley faces to them? 
+
+<p class="margin">   </p>
   <img src="./CopperLovers.jpeg" alt="CopperLovers" class="tool-box-pic">
+
+  <p class="margin">   </p>
 Too late. I've already done it. Copper and Coppertino are lovers. <br>
 
+<p class="margin">   </p>
+
 Here they are in action: <br>
+
+<p class="margin">   </p>
 
 <video class="centered-video" width="600" controls>
   <source src="./DotAndDash.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
+<p class="margin">   </p>
+
 As you can see, I've added dashes with some more timer and if functions. Now I want to get to the fun part. I've found this on google: <br>
+
+<p class="margin">   </p>
 
 <p> <br><b>Dot length:</b>  A dot is one unit long. <br>
 <b>Dash length:</b>  A dash is three units long. <br>
@@ -165,7 +182,11 @@ As you can see, I've added dashes with some more timer and if functions. Now I w
 <b>Space between words:</b>  The space between words is seven units. <br>
 </p>
 
+<p class="margin">   </p>
+
 Let's update the arduino code to match this. I had some help from chatGPT to make this code, which is pretty accurate in recording different touches and spaces between words: 
+
+<p class="margin">   </p>
   <pre><code class="language-cpp">  
     long result;            // Variable for the result of the tx_rx measurement
 int analog_pin = A3;    // Analog input pin
@@ -255,30 +276,75 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
   
     return sum;                        // Return the sum as the result
 }
+
+<p class="margin">   </p>
  </code></pre>
 <br>
  um so basically this relies on a timer that resets after everytime a new character is recorded. The unit of time right now is half of a second, meaning you will need to hold copper and coppertino together for 3 seconds in order to record a dash. Here they are in action: 
+
+ <p class="margin">   </p>
 
  <video class="centered-video" width="600" controls>
   <source src="./DotDashAndSpace.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-Pretty cool awesome awesome awesome!!! <br>
+<p class="margin">   </p>
+
+Pretty cool awesome awesome awesome!!!
+
+<p class="margin">   </p>
 
 Okay so here is my first attempt at typing my name, Aiyanna Amara, using this method: 
 
+<p class="margin">   </p>
+
   <img src="./AIYONAAMARA.jpeg" alt="AIYONAAMARA" class="tool-box-pic">
 
-  <br>
+<p class="margin">   </p>
   Here's what it actually says: 
+
+  <p class="margin">   </p>
 
 <img src="./Translation.jpg" alt="Translation" class="tool-box-pic">
 
+<p class="margin">   </p>
+
 I mean it's not my name, but for a first attempt close enough!! <br>
 
+<p class="margin">   </p>
+
+Okay here is my circuit Schematic:
+
+<p class="margin">   </p> 
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991366399" height="604" width="450" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin">   </p>
+
+
 <h3>Assignment 2: [Use + Calibrate Another Sensor]</h3>
-<h4> <br> Coming soon...
+
+<p class="margin">   </p>
+
+Here are some blinking lights!:
+
+<p class="margin">   </p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991366277" height="900" width="450" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin">   </p>
+
+And a schematic for them: 
+
+
+<p class="margin">   </p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991366533" height="608" width="450" frameborder="0" scrolling="no" ></iframe>
+
+<p class="margin">   </p>
+
+
 </div>
 </xmp>
 </body>
