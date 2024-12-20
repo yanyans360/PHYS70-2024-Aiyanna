@@ -181,7 +181,9 @@ Drawing made with the machine:
 
 <p class="margin"></p>
 
-This is the code I used to test my motors.
+This is the code I used to test my motors:
+<p class="margin"></p>
+<div class="scrollable-container">
  <pre><code class="language-cpp">
  void setup() {
   Serial.begin(115200); // Start Serial communication
@@ -212,7 +214,13 @@ void loop() {
   Serial.println("Stepping...");
 }
  </code></pre>
- This is the code I use to test whether direction pins are working. 
+
+ </div>
+ <p class="margin"></p>
+ This is the code I use to test whether direction pins are working:
+ <p class="margin"></p>
+
+ <div class="scrollable-container">
   <pre><code class="language-cpp">
   const int DIR_PIN_RIGHT = 8; // Direction pin for the right motor
 const int STEP_PIN_RIGHT = D7; // Step pin for the right motor
@@ -272,7 +280,15 @@ void runStepper(int stepPin) {
 }
 
  </code></pre>
-This is the code that I used to move the pen left and right using buttons on a server. 
+
+ </div>
+
+ <p class="margin"></p>
+This is the code that I used to move the pen left and right using buttons on a server:
+
+<p class="margin"></p>
+
+<div class="scrollable-container"> 
 <pre><code class="language-cpp">
   #include <WiFi.h>
 
@@ -387,8 +403,11 @@ void loop() {
   }
 }
  </code></pre>
-
- this code has buttons for all four directions
+ </div>
+<p class="margin"></p>
+ this code has buttons for all four directions:
+<p class="margin"></p>
+ <div class="scrollable-container">
 
  <pre><code class="language-cpp">
   #include <WiFi.h>
@@ -542,8 +561,12 @@ void loop() {
 
 
  </code></pre>
-This is the code that allows me to use the arrows of my keyboard to control my pen holder: 
 
+ </div>
+ <p class="margin"></p>
+This is the code that allows me to use the arrows of my keyboard to control my pen holder: 
+<p class="margin"></p>
+<div class="scrollable-container">
   <pre><code class="language-cpp">
   #include <WiFi.h>
 
@@ -714,7 +737,15 @@ void loop() {
 }
  </code></pre>
 
-This code is similar to the last one but is specialized for microstepping and faster reaction time from each button press. 
+ </div>
+
+ <h4>
+  <p class="margin"></p>
+
+This code is similar to the last one but is specialized for microstepping and faster reaction time from each button press:
+<p class="margin"></p>
+
+<div class="scrollable-container">
 
 <pre><code class="language-cpp">
 
@@ -904,7 +935,11 @@ void loop() {
 }
 
  </code></pre>
-This is my code updated to keep track of x and y positions as well as being able to store page width and height information. 
+ </div>
+ <p class="margin"></p>
+This is my code updated to keep track of x and y positions as well as being able to store page width and height information:
+<p class="margin"></p>
+<div class="scrollable-container">
   <pre><code class="language-cpp">
 
 
@@ -1207,6 +1242,7 @@ const int cooldown = 300; // Cooldown in milliseconds
 }
 
  </code></pre>
+ </div>
 
 
 </div>
