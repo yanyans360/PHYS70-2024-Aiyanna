@@ -234,6 +234,8 @@ code {
     background-color: #2d2b33; /* Background for code blocks */
     color: #EEE7E8; /* Text color for code */
     font-family: 'Courier New', Courier, monospace; /* Code block font */
+     font-size: 14px; /* Adjust to your desired size, e.g., 12px or 14px */
+    line-height: 1.5; /* Adjust line spacing for readability */
 }
 
 /* Caption Styling */
@@ -438,7 +440,7 @@ h3 {
     display: block; /* Makes the image a block element for centering */
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
-    max-width: 50%; /* Scales the image down to 40% */
+    max-width: 30%; /* Scales the image down to 40% */
     height: auto; /* Maintains aspect ratio */
     border-radius: 10px; /* Optional: Rounded corners */
 }
@@ -446,7 +448,7 @@ h3 {
     display: block; /* Makes the image a block element for centering */
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
-    max-width: 50%; /* Scales the image down to 40% */
+    max-width: 30%; /* Scales the image down to 40% */
     height: auto; /* Maintains aspect ratio */
     border-radius: 10px; /* Optional: Rounded corners */
 }
@@ -455,7 +457,7 @@ h3 {
     display: block; /* Makes the image a block element for centering */
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
-    max-width: 50%; /* Scales the image down to 40% */
+    max-width: 30%; /* Scales the image down to 40% */
     height: auto; /* Maintains aspect ratio */
     border-radius: 10px; /* Optional: Rounded corners */
 }
@@ -464,7 +466,7 @@ h3 {
     display: block; /* Makes the image a block element for centering */
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
-    max-width: 50%; /* Scales the image down to 40% */
+    max-width: 30%; /* Scales the image down to 40% */
     height: auto; /* Maintains aspect ratio */
     border-radius: 10px; /* Optional: Rounded corners */
 }
@@ -472,7 +474,7 @@ h3 {
     display: block; /* Makes the image a block element for centering */
     margin-left: auto; /* Centers image horizontally */
     margin-right: auto; /* Centers image horizontally */
-    max-width: 80%; /* Scales the image down to 40% */
+    max-width: 30%; /* Scales the image down to 40% */
     height: auto; /* Maintains aspect ratio */
     border-radius: 30px; /* Optional: Rounded corners */
 }
@@ -482,8 +484,10 @@ code {
   background-color: #fcf1de; /* Dark background for code block */
   color: #EEE7E8; /* Light text color */
   font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-  padding: 10px;
+  padding: 6px;
   display: block;
+  font-size: 10px; /* Adjust to your desired size, e.g., 12px or 14px */
+  line-height: 1; /* Adjust line spacing for readability */
   white-space: pre-wrap; /* Preserve indentation and line breaks */
   border-radius: 5px;
   overflow-x: auto; /* Enable horizontal scrolling if the code is too wide */
@@ -500,8 +504,6 @@ code {
 }
 
 iframe {
-  display: block;
-  margin: 0 auto;
   border-radius: 15px;          /* Round the corners */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for depth */
 }

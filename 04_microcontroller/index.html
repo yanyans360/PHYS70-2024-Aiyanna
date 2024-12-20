@@ -39,9 +39,51 @@
 <p class="margin">   </p>
 
 
-<h3>Please see weeks 3 or 5 for me to see my code for the arduino! :)</h3>
+<h3>[Do Something with an arduino]</h3>
+
+<p class="margin">   </p>
+<h4>
+
+Here I'll write about how I could program the arduino board from week three. 
+<p class="margin">   </p>
+Here is my setup. It's just a servo motor that spins right and left: 
+<p class="margin">   </p>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991365698" height="700" width="450" frameborder="0" scrolling="no" ></iframe>
+
+<iframe src="https://assets.pinterest.com/ext/embed.html?id=707698528991365720" height="900" width="450" frameborder="0" scrolling="no" ></iframe>
+<p class="margin">   </p>
 
 
+
+Here is the code that I used: 
+<p class="margin">   </p>
+
+ <pre><code class="language-cpp">  
+
+  #include <Servo.h> // Include the Servo library
+
+Servo myServo; // Create a Servo object
+
+void setup() {
+  myServo.attach(8); // Attach the servo to pin 8
+}
+
+void loop() {
+  // Example: Sweep the servo back and forth
+  for (int angle = 0; angle <= 180; angle++) { // Move from 0 to 180 degrees
+    myServo.write(angle); // Set the servo position
+    delay(15); // Wait for the servo to reach the position
+  }
+
+  for (int angle = 180; angle >= 0; angle--) { // Move back from 180 to 0 degrees
+    myServo.write(angle); // Set the servo position
+    delay(15); // Wait for the servo to reach the position
+  }
+}
+ </code></pre>
+
+<p class="margin">   </p>
 
 
 
