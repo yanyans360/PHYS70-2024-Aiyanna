@@ -549,3 +549,50 @@ iframe {
   color: #ffffff; /* White text */
 }
 
+/* Fusion 360 Button Styling */
+.fusion-btn {
+  background-color: #a5381c; /* Use a darker color for differentiation */
+  color: #EEE7E8; /* Light text color */
+}
+
+.fusion-btn:hover {
+  background-color: #feca7e; /* Light orange on hover */
+  color: #ffffff; /* White text on hover */
+}
+
+.index-links {
+  background-color: #fdf8eb; /* Matches your site's background color */
+  padding: 10px 20px; /* Adds padding for space */
+  border: 1px solid #ddd; /* Optional: Adds a border */
+  border-radius: 5px; /* Optional: Rounds the corners */
+  margin-bottom: 20px; /* Adds space below the index */
+}
+
+.index-links h4 {
+  font-family: 'Rubik Mono One', sans-serif; /* Matches your title font */
+  font-size: 20px; /* Adjust size as needed */
+  color: #a5381c; /* Dark color for the index title */
+}
+
+.index-links ul {
+  list-style-type: none; /* Removes bullet points */
+  padding: 0; /* Removes padding */
+  margin: 0; /* Removes margin */
+}
+
+.index-links li {
+  margin: 5px 0; /* Adds spacing between list items */
+}
+
+.index-links a {
+  font-family: "Gill Sans", Verdana, sans-serif; /* Matches your site's font */
+  font-size: 16px; /* Adjust as needed */
+  color: #000000; /* Black text */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.index-links a:hover {
+  color: #a5381c; /* Darker color for hover */
+}
+
