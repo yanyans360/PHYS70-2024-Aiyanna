@@ -596,3 +596,32 @@ iframe {
   color: #a5381c; /* Darker color for hover */
 }
 
+.pinterest-btn {
+  display: inline-block;
+  font-family: 'Rubik Mono One', sans-serif; /* Matches your title font */
+  font-size: 16px; /* Adjust font size */
+  color: #ffffff; /* White text */
+  background-color: #bd081c; /* Pinterest red */
+  text-decoration: none; /* Remove underline */
+  padding: 10px 20px; /* Add padding for a button-like appearance */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  text-align: center; /* Center-align the text */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.pinterest-btn:hover {
+  background-color: #d50c22; /* Slightly lighter red on hover */
+  transform: scale(1.05); /* Slightly enlarge button on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+  color: #ffffff; /* Ensure text remains white */
+}
+
+.pinterest-btn:active {
+  transform: scale(0.95); /* Slightly shrink button when clicked */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+}
+
+
+

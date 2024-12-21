@@ -30,35 +30,80 @@
        <br>Weeks 10-12: Machine Building
       </h2>
   </div>
+     <div class="index-links">
+    <h4>index!</h4>
+    <ul>
+      <li><a href="#snake-head">1. Snake Head</a></li>
+      <li><a href="#locomotion">2. Locomotion</a></li>
+      <li><a href="#coding-section">Coding Section</a></li>
+    </ul>
+  </div>
 </nav>
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
 <p class="margin">   </p>
 
-<h3>Assignment: Build a Drain Robot</h3>
+<h3 id="assignment-drain-robot">Assignment: Build a Drain Robot</h3>
+
+<p class="margin">   </p>
+
 
 <h4> Alrighty so for this week, we're making a robot that can navigate the Hallowed Drains of Harvard Halls. I've been sorted into the 'controller' group, which is in charge of making the consol that will ultimately be in control of the motors for the two drain robots' designs, as well as incorporating hardware to house the joystick and camera feed screen. I'm going to split this documentation up by robot design. We've got two teams: 1. snake head and 2. locomotion. Let's start with our control for team snake head: 
+<p class="margin">   </p>
 
-<h3> 1. snake head </h3>
+      <h3 id="snake-head">1. Snake Head</h3>
+      <p class="margin">   </p>
+
 
 <h4>This team needs controls for left and right movement using a servo and a joystick. For right now, I'm just going to add pictures and videos of this process and add captions afterwards. 
+<p class="margin">   </p>
 
   <img src="./StillServoAndJoy.jpeg" alt="Joystick and servo motor" class="tool-box-pic">
+<p class="margin">   </p>
 
 <video class="centered-video" width="600" controls>
   <source src="./ServoAndJoystick.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+<p class="margin">   </p>
 
+<video class="centered-video" width="600" controls>
+  <source src="./TwoServos.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
+<p class="margin">   </p>
+
+<p class="margin">   </p>
+
+
+    <h3 id="locomotion">2. Locomotion</h3>
+
+<h4> Alrighty so we've just been informed that we are going with locomation which is driving their cart using. we're going to have to adapt!
+
+<p class="margin">   </p>
 Here is the link to my pinterest board for this week. I might add more captions later, but for now I want to make sure I make the deadline: 
 
+<p class="margin">   </p>
 
-https://www.pinterest.com/aiojukwu/ps70-machine-building-week/
+<a href="https://www.pinterest.com/aiojukwu/ps70-machine-building-week/" 
+   class="pinterest-btn" 
+   target="_blank">
+  View Pinterest Board
+</a>
 
+<p class="margin">   </p>
 
-okay so here I'm adding in a bunch of blocks of code that I wil add captions to later: 
+    <h3 id="coding-section">Coding Section!</h3>
 
+<h4>
+okay so here I'm adding in a bunch of blocks of code that I wil add captions to later:
+
+<p class="margin">   </p>
+
+ <div class="scrollable-container">
  <pre><code class="language-cpp">  
   #include <ESP32Servo.h>
 
@@ -102,7 +147,9 @@ void loop() {
 }
 
  </code></pre>
-
+ </div>
+<p class="margin">   </p>
+ <div class="scrollable-container">
   <pre><code class="language-cpp"> 
   #include <ESP32Servo.h>
 
@@ -174,7 +221,10 @@ void loop() {
   delay(50);
 } 
  </code></pre>
+ </div>
 
+ <p class="margin">   </p>
+ <div class="scrollable-container">
   <pre><code class="language-cpp"> 
     Serial.println(" | Direction: CCW");
   }
@@ -189,6 +239,10 @@ void loop() {
   delay(50);
 }
  </code></pre>
+ </div>
+
+ <p class="margin">   </p>
+  <div class="scrollable-container">
   <pre><code class="language-cpp"> 
     #include <ESP32Servo.h>
 
@@ -278,16 +332,8 @@ void loop() {
   delay(50);
 }
  </code></pre>
-
-<video class="centered-video" width="600" controls>
-  <source src="./TwoServos.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-
-<h3> 2. locomotion <h3>
-
-<h4> Alrighty so we've just been informed that we are going with locomation which is driving their cart using. we're going to have to adapt!
+ </div>
+ <p class="margin">   </p>
 
 
 
