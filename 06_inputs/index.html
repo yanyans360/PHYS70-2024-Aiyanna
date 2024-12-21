@@ -30,6 +30,13 @@
        <br>Week 6: Electronic Inputs.
       </h2>
   </div>
+    <div class="index-links">
+    <h4>index!</h4>
+    <ul>
+      <li><a href="#assignment-capacitive">Assignment 1: Capacitive Sensor</a></li>
+      <li><a href="#assignment-another-sensor">Assignment 2: Use + Calibrate Another Sensor</a></li>
+    </ul>
+  </div>
 </nav>
 
 <body>
@@ -38,7 +45,7 @@
 <p class="margin">   </p>
 
 
-<h3>Assignment 1: Capacitive Sensor<h3>
+<h3 id="assignment-capacitive">Assignment 1: Capacitive Sensor</h3>
   <p class="margin">   </p>
 <h4>  Okay here's my dream capacitive sensor: <br>
 
@@ -62,7 +69,9 @@ into something useful. <br>
 here is the code that I'm using to take measurements for my data collection. Note that I have a 1000 ms Delay jut to make it easier to read for data collection. I will be deleting this when it's action time: <br>
 <p class="margin">   </p>
 <!-- Arduino Code Block -->
+<div class="scrollable-container">
   <pre><code class="language-cpp">
+
 long result;            // Variable for the result of the tx_rx measurement
 int analog_pin = A3;    // Analog input pin
 int tx_pin = 4;         // Digital output pin
@@ -111,6 +120,7 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
 
 
   </code></pre>
+  </div>
 <p class="margin">   </p>
  okay after coming up with some sketchy capcitor measuring methods...<br>
 
@@ -133,9 +143,10 @@ if (result > 5000) {
 }
 
   </code></pre>
+
 <br>
 added this to make a clear space to print: 
-  <pre><code class="language-cpp"> 
+  <pre><code class="language-cpp">
   // Print newlines to simulate clearing the screen
   for (int i = 0; i < 10; i++) {
     Serial.println();            // Print 10 newlines to create space
@@ -187,6 +198,7 @@ As you can see, I've added dashes with some more timer and if functions. Now I w
 Let's update the arduino code to match this. I had some help from chatGPT to make this code, which is pretty accurate in recording different touches and spaces between words: 
 
 <p class="margin">   </p>
+    <div class="scrollable-container">
   <pre><code class="language-cpp">  
     long result;            // Variable for the result of the tx_rx measurement
 int analog_pin = A3;    // Analog input pin
@@ -279,6 +291,7 @@ long tx_rx() {                       // Function to execute tx_rx algorithm
 
 <p class="margin">   </p>
  </code></pre>
+ </div>
 <br>
  um so basically this relies on a timer that resets after everytime a new character is recorded. The unit of time right now is half of a second, meaning you will need to hold copper and coppertino together for 3 seconds in order to record a dash. Here they are in action: 
 
@@ -323,9 +336,11 @@ Okay here is my circuit Schematic:
 <p class="margin">   </p>
 
 
-<h3>Assignment 2: [Use + Calibrate Another Sensor]</h3>
+<h3 id="assignment-another-sensor">Assignment 2: Use + Calibrate Another Sensor</h3>
 
 <p class="margin">   </p>
+
+<h4>
 
 Here are some blinking lights!:
 
